@@ -1,5 +1,9 @@
 name: Pages
 
+# Un solo trabajo (build + despliegue): necesita una única máquina de GitHub,
+# lo que reduce las esperas y los fallos por falta de runners disponibles.
+# Las pruebas completas corren en el flujo CI.
+
 on:
   push:
     branches: [main]
@@ -12,34 +16,29 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - name: Validar marcos
         run: npm run validate
-      - name: Pruebas
-        run: npm test
       - name: Build
         run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - id: deployment
         uses: actions/deploy-pages@v4

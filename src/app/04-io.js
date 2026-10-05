@@ -72,10 +72,10 @@ VIEWS.exportar = () => {
     `<div class="grid g2">
       <div class="card"><h2>Proyecto${p ? ' · ' + esc(p.name) : ''}</h2>
         ${p ? `<div class="stack">
-          <div class="row spread"><span>Libro Excel: resumen, declaración de aplicabilidad por marco, controles, plan y alertas</span><button class="btn primary sm" data-act="exp-xlsx" type="button">Excel</button></div>
-          <div class="row spread"><span>Informe en Markdown</span><button class="btn sm" data-act="exp-md" type="button">Markdown</button></div>
-          <div class="row spread"><span>Controles en CSV</span><button class="btn sm" data-act="exp-csv" type="button">CSV</button></div>
-          <div class="row spread"><span>Proyecto en JSON (para compartir o versionar)</span><button class="btn sm" data-act="exp-json" type="button">JSON</button></div>
+          <div class="card-head"><span>Libro Excel: resumen, declaración de aplicabilidad por marco, controles, plan y alertas</span><button class="btn primary sm" data-act="exp-xlsx" type="button">Excel</button></div>
+          <div class="card-head"><span>Informe en Markdown</span><button class="btn sm" data-act="exp-md" type="button">Markdown</button></div>
+          <div class="card-head"><span>Controles en CSV</span><button class="btn sm" data-act="exp-csv" type="button">CSV</button></div>
+          <div class="card-head"><span>Proyecto en JSON (para compartir o versionar)</span><button class="btn sm" data-act="exp-json" type="button">JSON</button></div>
         </div>` : '<p class="muted">Abrí un proyecto para exportarlo.</p>'}
       </div>
       <div class="card"><h2>Copia de seguridad completa</h2>

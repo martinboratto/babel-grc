@@ -162,3 +162,47 @@ test('móvil: sin desplazamiento horizontal', async () => {
   }
   await page.close();
 });
+
+/** Elementos que se salen de su tarjeta o panel, y desplazamiento horizontal de la página. */
+function overflowReport() {
+  const out = [];
+  const over = document.documentElement.scrollWidth - window.innerWidth;
+  if (over > 1) out.push('página con ' + over + 'px de desplazamiento horizontal');
+  document.querySelectorAll('main *, #drawer *').forEach(el => {
+    if (el.closest('.tbl-wrap, .list, select, textarea')) return;
+    const r = el.getBoundingClientRect();
+    if (!r.width) return;
+    const box = el.parentElement && el.parentElement.closest('.card, .kcard, .col, .callout, .panel');
+    if (!box) return;
+    const b = box.getBoundingClientRect();
+    if (r.right > b.right - parseFloat(getComputedStyle(box).borderRightWidth) + 1)
+      out.push(`${el.tagName.toLowerCase()}.${String(el.className).split(' ')[0]} «${(el.textContent || '').trim().slice(0, 30)}»`);
+  });
+  const panel = document.querySelector('#drawer .panel');
+  if (panel && panel.scrollWidth - panel.clientWidth > 1) out.push('panel lateral con desplazamiento horizontal');
+  return Array.from(new Set(out)).slice(0, 10);
+}
+
+test('ningún contenido se desborda, aunque un marco nuevo tenga nombres, URLs y textos muy largos', async () => {
+  for (const viewport of [{ width: 1440, height: 900 }, { width: 1000, height: 800 }, { width: 390, height: 844 }]) {
+    const page = await newPage(viewport);
+    await page.click('[data-act="load-example"]');
+    await page.goto(URL_APP + '#/marcos');
+    await pickFramework(page, fixture('fixtures/marco-estres.json'));
+    await page.click('#modal [data-act="modal-ok"]');
+    const views = ['inicio', 'resumen', 'requisitos?fw=marco-estres', 'requisitos?fw=dora', 'controles', 'equivalencias?fw=marco-estres', 'equivalencias?fw=dora', 'brechas', 'plan', 'marcos', 'exportar', 'ayuda'];
+    for (const v of views) {
+      await page.goto(URL_APP + '#/' + v);
+      await page.waitForSelector('main h1');
+      assert.deepEqual(await page.evaluate(overflowReport), [], `${viewport.width}px · ${v}`);
+    }
+    await page.goto(URL_APP + '#/requisitos?fw=marco-estres');
+    await page.locator('main [data-act="req"]').first().click();
+    assert.deepEqual(await page.evaluate(overflowReport), [], `${viewport.width}px · panel de requisito`);
+    await page.keyboard.press('Escape');
+    await page.click('main [data-act="ctrl"][data-id="GOB-01"]');
+    assert.deepEqual(await page.evaluate(overflowReport), [], `${viewport.width}px · panel de control`);
+    assert.deepEqual(page.errors, []);
+    await page.close();
+  }
+});

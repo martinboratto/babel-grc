@@ -16,7 +16,7 @@ babel-grc
 ├─ catálogo:    147 controles unificados en 14 dominios
 ├─ cálculo:     cobertura ponderada · equivalencias · solapamiento · 10 reglas de coherencia · plan priorizado
 ├─ aplicación:  HTML + CSS + JavaScript sin framework · un único index.html · tema claro y oscuro · móvil
-├─ pruebas:     node:test (27) · Playwright E2E (8)
+├─ pruebas:     node:test (27) · Playwright E2E (9, incluida una prueba de desbordes con marcos de textos extremos)
 └─ seguridad:   CSP con hashes · SRI · cero peticiones a terceros · neutralización de fórmulas
 ```
 

@@ -1,0 +1,131 @@
+{
+  "id": "marco-estres",
+  "name": "Marco de estrés · Reglamento de resiliencia SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+  "shortName": "Estrés Supercalifragilisticoespialido",
+  "version": "Versión 2026 consolidada SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+  "publisher": "Organismo regulador SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+  "jurisdiction": "Jurisdicción SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+  "type": "regulacion",
+  "color": "#C2410C",
+  "url": "https://www.ejemplo-de-organismo-regulador.gob.ar/normativa/consolidada/2026/SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso/texto.pdf",
+  "description": "Marco ficticio con textos extremos para probar que la interfaz no se desborda. SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+  "notice": "Aviso SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+  "groups": [
+    {
+      "id": "G-Supercalifragilistic",
+      "title": "Grupo con título larguísimo SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso"
+    }
+  ],
+  "controls": [
+    {
+      "id": "TSE-01",
+      "domain": "TSE",
+      "title": "Control propio SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "description": "Descripción SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R-0-SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "ref": "Art. 0.SupercalifragilisticoespialidosoSupercalifragilistico",
+      "group": "G-Supercalifragilistic",
+      "title": "Requisito SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso con varias palabras normales al final",
+      "summary": "Resumen SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "note": "Nota SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-06",
+          "strength": "partial"
+        },
+        {
+          "control": "TSE-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "R-1-SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "ref": "Art. 1.SupercalifragilisticoespialidosoSupercalifragilistico",
+      "group": "G-Supercalifragilistic",
+      "title": "Requisito SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso con varias palabras normales al final",
+      "summary": "Resumen SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "note": "Nota SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-06",
+          "strength": "partial"
+        },
+        {
+          "control": "TSE-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "R-2-SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "ref": "Art. 2.SupercalifragilisticoespialidosoSupercalifragilistico",
+      "group": "G-Supercalifragilistic",
+      "title": "Requisito SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso con varias palabras normales al final",
+      "summary": "Resumen SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "note": "Nota SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-06",
+          "strength": "partial"
+        },
+        {
+          "control": "TSE-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "R-3-SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "ref": "Art. 3.SupercalifragilisticoespialidosoSupercalifragilistico",
+      "group": "G-Supercalifragilistic",
+      "title": "Requisito SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso con varias palabras normales al final",
+      "summary": "Resumen SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "note": "Nota SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-06",
+          "strength": "partial"
+        },
+        {
+          "control": "TSE-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "R-4-SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "ref": "Art. 4.SupercalifragilisticoespialidosoSupercalifragilistico",
+      "group": "G-Supercalifragilistic",
+      "title": "Requisito SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso con varias palabras normales al final",
+      "summary": "Resumen SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "note": "Nota SupercalifragilisticoespialidosoSupercalifragilisticoespialidoso",
+      "excludable": true,
+      "mappings": []
+    }
+  ]
+}

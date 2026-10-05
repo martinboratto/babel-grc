@@ -7,8 +7,8 @@ VIEWS.inicio = () => {
   const projects = S.projects.map(p => {
     const sc = scope(p);
     return `<div class="card">
-      <div class="row spread"><h3>${esc(p.name)}</h3>${p.id === S.activeId ? '<span class="chip accent">Abierto</span>' : ''}</div>
-      <div class="stack">${sc.length ? sc.map(id => { const s = E.frameworkScore(S.model, p, id); return `<div class="row spread small"><span class="row">${dot(id)}${esc(fw(id).shortName)}</span><span class="num">${pct(s.score)}</span></div>${bar(s.score)}`; }).join('') : '<p class="muted small">Sin marcos en el alcance.</p>'}</div>
+      <div class="card-head"><h3>${esc(p.name)}</h3>${p.id === S.activeId ? '<span class="chip accent">Abierto</span>' : ''}</div>
+      <div class="stack">${sc.length ? sc.map(id => { const s = E.frameworkScore(S.model, p, id); return `<div class="card-head small"><span class="fw-title">${dot(id)}<span class="name">${esc(fw(id).shortName)}</span></span><span class="num">${pct(s.score)}</span></div>${bar(s.score)}`; }).join('') : '<p class="muted small">Sin marcos en el alcance.</p>'}</div>
       <div class="row">
         ${p.id === S.activeId ? `<button class="btn primary sm" data-act="go" data-view="resumen" type="button">Ver resumen</button>` : `<button class="btn primary sm" data-act="open-project" data-id="${esc(p.id)}" type="button">Abrir</button>`}
         <button class="btn sm" data-act="rename-project" data-id="${esc(p.id)}" type="button">Renombrar</button>
@@ -95,10 +95,11 @@ VIEWS.resumen = () => {
   const cards = sc.map(id => {
     const s = E.frameworkScore(S.model, p, id), f = fw(id), c = s.counts;
     return `<div class="card">
-      <div class="row spread"><h3 class="row">${dot(id)}${esc(f.name)}</h3><button class="btn sm ghost" data-act="go" data-view="requisitos" data-fw="${esc(id)}" type="button">Ver requisitos →</button></div>
+      ${fwTitle(id)}
       <div class="score"><span class="big">${pct(s.score)}</span><span class="muted">de cumplimiento · ${s.applicable} requisitos aplicables</span></div>
       ${seg([['covered', c.covered, 'Cubiertos'], ['partial', c.partial, 'Parciales'], ['gap', c.gap, 'Brechas'], ['unmapped', c.unmapped, 'Sin mapear'], ['excluded', c.excluded, 'Excluidos']])}
       <div class="legend"><span><i class="s-covered"></i>Cubiertos ${c.covered}</span><span><i class="s-partial"></i>Parciales ${c.partial}</span><span><i class="s-gap"></i>Brechas ${c.gap}</span>${c.unmapped ? `<span><i class="s-unmapped"></i>Sin mapear ${c.unmapped}</span>` : ''}${c.excluded ? `<span><i class="s-excluded"></i>Excluidos ${c.excluded}</span>` : ''}</div>
+      <div><button class="btn sm" data-act="go" data-view="requisitos" data-fw="${esc(id)}" type="button">Ver requisitos →</button></div>
     </div>`;
   }).join('');
   const dom = E.domainSummary(S.model, p);
@@ -113,14 +114,14 @@ VIEWS.resumen = () => {
     <div class="grid g2">
       <div class="card"><h3>Controles por dominio</h3>
         <div class="legend"><span><i class="s-implemented"></i>Implantado</span><span><i class="s-partial"></i>Parcial</span><span><i class="s-pending"></i>Pendiente</span><span><i class="s-na"></i>No aplica</span></div>
-        <div class="stack">${dom.map(d => `<div><div class="row spread small"><span>${esc(d.title)}</span><span class="muted num">${d.implemented}/${d.total}</span></div>${seg([['implemented', d.implemented, 'Implantados'], ['partial', d.partial, 'Parciales'], ['pending', d.pending, 'Pendientes'], ['na', d.na, 'No aplica']])}</div>`).join('')}</div>
+        <div class="stack">${dom.map(d => `<div><div class="card-head small"><span>${esc(d.title)}</span><span class="muted num">${d.implemented}/${d.total}</span></div>${seg([['implemented', d.implemented, 'Implantados'], ['partial', d.partial, 'Parciales'], ['pending', d.pending, 'Pendientes'], ['na', d.na, 'No aplica']])}</div>`).join('')}</div>
       </div>
       <div class="stack">
-        <div class="card"><div class="row spread"><h3>Prioridades</h3><button class="btn sm ghost" data-act="go" data-view="plan" type="button">Plan de acción →</button></div>
+        <div class="card"><div class="card-head"><h3>Prioridades</h3><button class="btn sm ghost" data-act="go" data-view="plan" type="button">Plan de acción →</button></div>
           <p class="muted small">Controles pendientes ordenados por la cobertura que suman en todos los marcos del alcance.</p>
           ${pr.length ? `<div class="tbl-wrap"><table><thead><tr><th>Control</th><th class="right">Aporte</th><th>Estado</th></tr></thead><tbody>${pr.map(x => `<tr><td><button class="linkish" data-act="ctrl" data-id="${esc(x.control)}" type="button"><span class="ref">${esc(x.control)}</span> ${esc(ctrl(x.control).title)}</button></td><td class="right num nowrap">+${(x.gain * 100).toFixed(1)} pp</td><td>${statusSelect(x.control, x.status, null, 'pr-' + x.control)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No quedan controles pendientes. ✓</p>'}
         </div>
-        <div class="card"><div class="row spread"><h3>Coherencia</h3><button class="btn sm ghost" data-act="go" data-view="brechas" type="button">Ver alertas →</button></div>
+        <div class="card"><div class="card-head"><h3>Coherencia</h3><button class="btn sm ghost" data-act="go" data-view="brechas" type="button">Ver alertas →</button></div>
           <div class="row"><span class="chip alta">Alta ${sev('alta')}</span><span class="chip media">Media ${sev('media')}</span><span class="chip baja">Baja ${sev('baja')}</span></div>
         </div>
       </div>
@@ -281,12 +282,12 @@ VIEWS.equivalencias = () => {
       <div class="card">
         <div class="filters"><label class="vh" for="eq-fw">Marco</label><select id="eq-fw" data-chg="eq-fw">${all.map(x => `<option value="${esc(x.id)}"${x.id === sel ? ' selected' : ''}>${esc(x.name)}</option>`).join('')}</select>
         <label class="vh" for="eq-q">Buscar</label><input type="search" id="eq-q" placeholder="Filtrar requisitos…" value="${esc(filt('q', ''))}" data-inp="filter" data-key="q"></div>
-        <div class="list">${items.map(x => `<button type="button" data-act="eq-pick" data-fw="${esc(sel)}" data-id="${esc(x.id)}"${x.id === rid ? ' aria-current="true"' : ''}><span class="ref">${esc(x.ref)}</span><span>${esc(x.title)}</span></button>`).join('') || '<p class="muted small">Sin resultados.</p>'}</div>
+        <div class="list">${items.map(x => `<button type="button" data-act="eq-pick" data-fw="${esc(sel)}" data-id="${esc(x.id)}"${x.id === rid ? ' aria-current="true"' : ''}><span class="ref">${esc(x.ref)}</span><span class="grow">${esc(x.title)}</span></button>`).join('') || '<p class="muted small">Sin resultados.</p>'}</div>
       </div>
       <div class="stack">
         <div class="card"><div class="row">${fwTag(sel)}<span class="ref">${esc(r.ref)}</span>${stateChip(c.state)}</div><h2>${esc(r.title)}</h2>${r.summary ? `<p class="muted">${esc(r.summary)}</p>` : ''}
           <div class="row">${c.links.map(l => ctrlChip(l.control, p) + `<span class="faint small">${E.STRENGTH_LABEL[l.strength].toLowerCase()}</span>`).join(' ')}</div></div>
-        ${Object.keys(grouped).length ? Object.keys(grouped).map(g => `<div class="card"><h3 class="row">${dot(g)}${esc(fw(g).name)} <span class="muted small">${grouped[g].length} requisito(s)</span></h3>
+        ${Object.keys(grouped).length ? Object.keys(grouped).map(g => `<div class="card">${fwTitle(g, ` <span class="muted small nowrap">${grouped[g].length} requisito(s)</span>`)}
           <div class="tbl-wrap"><table><thead><tr><th>Ref.</th><th>Requisito</th><th>Tipo</th><th>Vía</th><th>Estado</th></tr></thead><tbody>
           ${grouped[g].map(e => { const o = req(e.fw, e.req), oc = E.requirementCoverage(S.model, p, e.fw, e.req); return `<tr><td class="ref">${esc(o.ref)}</td><td><button class="linkish" data-act="eq-pick" data-fw="${esc(e.fw)}" data-id="${esc(e.req)}" type="button">${esc(o.title)}</button></td><td><span class="chip ${e.strength === 'full' ? 'ok' : e.strength === 'partial' ? 'warn' : ''}">${e.strength === 'full' ? 'Equivalente' : E.STRENGTH_LABEL[e.strength]}</span></td><td class="mono small">${e.via.map(esc).join(', ')}</td><td>${stateChip(oc.state)}</td></tr>`; }).join('')}
           </tbody></table></div></div>`).join('') : '<div class="card empty">Este requisito no comparte controles con otros marcos.</div>'}
@@ -306,11 +307,11 @@ VIEWS.brechas = () => {
   const shown = al.filter(a => !sv || a.severity === sv);
   const gaps = sc.map(id => {
     const list = fw(id).requirements.map(r => E.requirementCoverage(S.model, p, id, r.id)).filter(c => c.state === 'gap' || c.state === 'unmapped');
-    return `<div class="card"><h3 class="row">${dot(id)}${esc(fw(id).name)} <span class="chip bad">${list.length} sin cubrir</span></h3>
+    return `<div class="card">${fwTitle(id, ` <span class="chip bad">${list.length} sin cubrir</span>`)}
       ${list.length ? `<div class="tbl-wrap"><table><tbody>${list.map(c => `<tr><td class="ref">${esc(c.req.ref)}</td><td><button class="linkish" data-act="req" data-fw="${esc(id)}" data-id="${esc(c.req.id)}" type="button">${esc(c.req.title)}</button></td><td>${stateChip(c.state)}</td><td><div class="row">${c.links.filter(l => l.weight > 0).map(l => ctrlChip(l.control, p)).join(' ')}</div></td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">Todos los requisitos aplicables tienen alguna cobertura.</p>'}</div>`;
   }).join('');
   return head('Brechas y coherencia', 'Requisitos sin cobertura en cada marco y alertas de coherencia: controles sin evidencias o sin responsable, revisiones de más de 12 meses, exclusiones no permitidas o contradictorias entre marcos y requisitos sin mapear.') +
-    `<div class="card mb"><div class="row spread"><h2>Alertas (${al.length})</h2>
+    `<div class="card mb"><div class="card-head"><h2>Alertas (${al.length})</h2>
       <div class="row"><label class="vh" for="br-sv">Severidad</label><select id="br-sv" data-chg="filter" data-key="sv"><option value="">Todas</option>${['alta', 'media', 'baja'].map(k => `<option value="${k}"${k === sv ? ' selected' : ''}>${k[0].toUpperCase() + k.slice(1)}</option>`).join('')}</select></div></div>
       ${shown.length ? `<div class="tbl-wrap"><table><thead><tr><th>Severidad</th><th>Regla</th><th>Objeto</th><th>Detalle</th></tr></thead><tbody>${shown.slice(0, 400).map(a => `<tr><td><span class="chip ${a.severity}">${a.severity}</span></td><td class="nowrap small">${esc(RULES[a.rule] || a.rule)}</td><td>${a.control ? ctrlChip(a.control, p) : a.req ? `<button class="linkish small" data-act="req" data-fw="${esc(a.fw)}" data-id="${esc(a.req)}" type="button">${esc(req(a.fw, a.req).ref)}</button>` : fwTag(a.fw)}</td><td class="small">${esc(a.message)}</td></tr>`).join('')}</tbody></table></div>${shown.length > 400 ? `<p class="muted small">Se muestran las primeras 400 de ${shown.length}.</p>` : ''}` : '<div class="callout ok">Sin incoherencias para este filtro.</div>'}
     </div>

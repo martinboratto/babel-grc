@@ -21,7 +21,7 @@ VIEWS.marcos = () => {
   const cards = frameworks().map(f => {
     const st = fwStats(f), custom = isCustom(f.id);
     return `<div class="card">
-      <div class="row spread"><h3 class="row">${dot(f.id)}${esc(f.name)}</h3><span class="chip ${custom ? 'accent' : ''}">${custom ? 'Importado' : 'Incluido'}</span></div>
+      <div class="card-head">${fwTitle(f.id)}<span class="chip ${custom ? 'accent' : ''}">${custom ? 'Importado' : 'Incluido'}</span></div>
       <p class="muted small">${esc(f.description || '')}</p>
       <dl class="kv">
         ${f.version ? `<dt>Versión</dt><dd>${esc(f.version)}</dd>` : ''}${f.publisher ? `<dt>Emisor</dt><dd>${esc(f.publisher)}</dd>` : ''}${f.jurisdiction ? `<dt>Ámbito</dt><dd>${esc(f.jurisdiction)}</dd>` : ''}
@@ -197,7 +197,7 @@ function openMapEditor(fwId) {
     <p class="muted small">Asociá cada requisito con controles del catálogo común. Total: el control lo cubre por completo. Parcial: lo cubre en parte. Relación: informativo, no cuenta para el cálculo.</p>
     <label class="check small"><input type="checkbox" data-chg="map-only" data-fw="${esc(f.id)}"${mapOnly ? ' checked' : ''}>Mostrar solo requisitos sin mapear</label>
     <datalist id="ctrl-list">${Array.from(S.model.controls.values()).map(c => `<option value="${esc(c.id)}">${esc(c.title)}</option>`).join('')}</datalist>
-    <div class="stack">${rows.slice(0, 300).map(({ r, i }) => `<div class="card flat"><div class="row"><span class="ref">${esc(r.ref)}</span><strong>${esc(r.title)}</strong></div>
+    <div class="stack">${rows.slice(0, 300).map(({ r, i }) => `<div class="card flat"><div class="row"><span class="ref">${esc(r.ref)}</span><strong class="grow">${esc(r.title)}</strong></div>
         <div class="row">${(r.mappings || []).map((m, j) => `<span class="chip ${m.strength === 'full' ? 'ok' : m.strength === 'partial' ? 'warn' : ''}"><span class="mono">${esc(m.control)}</span> ${E.STRENGTH_LABEL[m.strength]}<button class="x small" data-act="map-del" data-fw="${esc(f.id)}" data-i="${i}" data-j="${j}" type="button" aria-label="Quitar ${esc(m.control)}">×</button></span>`).join('') || '<span class="chip unmapped">Sin mapear</span>'}</div>
         <div class="row"><label class="vh" for="mc-${i}">Control para ${esc(r.ref)}</label><input type="text" id="mc-${i}" list="ctrl-list" placeholder="Id de control (ej.: GOB-01)" maxlength="12">
           <label class="vh" for="ms-${i}">Fuerza del enlace</label><select id="ms-${i}"><option value="full">Total</option><option value="partial">Parcial</option><option value="related">Relación</option></select>

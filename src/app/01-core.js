@@ -53,7 +53,9 @@ function dot(fwId) {
   const f = fw(fwId);
   return `<span class="fw-dot" data-color="${esc(f && HEX.test(f.color) ? f.color : '#5b4bdb')}" aria-hidden="true"></span>`;
 }
-function fwTag(fwId) { const f = fw(fwId); return `<span class="chip outline">${dot(fwId)}${esc(f ? f.shortName : fwId)}</span>`; }
+function fwTag(fwId) { const f = fw(fwId); const n = f ? f.shortName : fwId; return `<span class="chip outline" title="${esc(f ? f.name : fwId)}">${dot(fwId)}<span class="trunc">${esc(n)}</span></span>`; }
+/** Título de marco con su color: el nombre se ajusta en varias líneas sin desbordar. */
+function fwTitle(fwId, extra, tag) { const f = fw(fwId); const t = tag || 'h3'; return `<${t} class="fw-title">${dot(fwId)}<span class="name">${esc(f ? f.name : fwId)}</span>${extra || ''}</${t}>`; }
 function stChip(status) { return `<span class="chip ${status}">${esc(E.STATUS_LABEL[status])}</span>`; }
 function stateChip(state) { return `<span class="chip ${state}">${esc(E.STATE_LABEL[state])}</span>`; }
 function bar(v, cls) { const c = cls || (v >= 0.9999 ? 'ok' : v > 0 ? 'warn' : 'bad'); return `<div class="bar ${c}" role="img" aria-label="${pct(v)}"><span data-w="${Math.round(v * 1000) / 10}"></span></div>`; }

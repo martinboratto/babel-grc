@@ -1,6 +1,6 @@
 {
   "name": "babel-grc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Herramienta de cumplimiento multinorma: relaciona los requisitos de varios marcos normativos con un catálogo común de controles y calcula el grado de cumplimiento de cada uno. Funciona en el navegador, sin servidor.",
   "author": "Martín Boratto",
   "license": "MIT",

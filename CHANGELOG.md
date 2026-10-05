@@ -1,5 +1,16 @@
 # Cambios
 
+## 1.0.1 · 2026-10-05
+
+Corrección de visualización: contenidos que se salían de las tarjetas.
+
+- Fichas de marcos: la columna de valores ya no se desborda con URLs, versiones o nombres largos.
+- Títulos de marco con un único componente (`fwTitle`) que ajusta el nombre en varias líneas; cabeceras de tarjeta que no aprietan el título.
+- Grids y flex sin desbordes por contenido (`minmax(0, 1fr)`, `min-width: 0`) y corte de palabras largas.
+- Móvil: un nombre de proyecto largo ya no ensancha la página; las etiquetas accesibles de las tablas ya no generan desplazamiento horizontal.
+- Resumen: el botón «Ver requisitos» pasa al pie de cada tarjeta.
+- Nueva prueba E2E: importa un marco con textos extremos y verifica que ningún contenido se desborda en todas las vistas y paneles, a 1440, 1000 y 390 px.
+
 ## 1.0.0 · 2026-10-05
 
 Primera versión.

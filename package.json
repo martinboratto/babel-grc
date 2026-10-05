@@ -1,6 +1,6 @@
 {
   "name": "babel-grc",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Herramienta de cumplimiento multinorma: relaciona los requisitos de varios marcos normativos con un catálogo común de controles y calcula el grado de cumplimiento de cada uno. Funciona en el navegador, sin servidor.",
   "author": "Martín Boratto",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
     "serve": "node scripts/serve.mjs",
-    "test": "node --test tests/engine.test.mjs tests/frameworks.test.mjs tests/build.test.mjs",
+    "test": "node --test tests/engine.test.mjs tests/frameworks.test.mjs tests/build.test.mjs tests/pdf.test.mjs",
     "test:e2e": "node scripts/build.mjs && node --test tests/e2e.test.mjs",
     "test:all": "npm test && npm run test:e2e",
     "xlsx-a-marco": "node scripts/xlsx-a-marco.mjs",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "exceljs": "^4.4.0",
+    "pdfjs-dist": "^4.10.38",
     "playwright": "^1.63.0"
   },
   "overrides": {

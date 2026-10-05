@@ -2,7 +2,7 @@
 
 **Herramienta de cumplimiento multinorma.** Relaciona los requisitos de varios marcos normativos con un **catálogo común de controles**, registra el estado de cada control una sola vez y calcula el grado de cumplimiento de cada marco, las equivalencias entre marcos, las brechas y el orden de implantación.
 
-Arranca con **ISO/IEC 27001:2022** y **DORA (Reglamento UE 2022/2554)**. Además, **acepta marcos nuevos en cualquier momento**, desde la aplicación (Excel o JSON) o desde el repositorio.
+Arranca con **ISO/IEC 27001:2022** y **DORA (Reglamento UE 2022/2554)**. Además, **acepta marcos nuevos en cualquier momento**: desde el **PDF de la norma**, desde una plantilla Excel o JSON, o desde el repositorio.
 
 [**▶ Abrir Babel GRC**](https://martinboratto.github.io/babel-grc/) · Funciona en el navegador, sin servidor y sin conexión. Los datos no salen del equipo.
 
@@ -16,7 +16,7 @@ babel-grc
 ├─ catálogo:    147 controles unificados en 14 dominios
 ├─ cálculo:     cobertura ponderada · equivalencias · solapamiento · 10 reglas de coherencia · plan priorizado · fotos del período verificables
 ├─ aplicación:  HTML + CSS + JavaScript sin framework · un único index.html · tema claro y oscuro · móvil
-├─ pruebas:     node:test (29) · Playwright E2E (10)
+├─ pruebas:     node:test (37) · Playwright E2E (11)
 └─ seguridad:   CSP con hashes · SRI · cero peticiones a terceros · neutralización de fórmulas
 ```
 
@@ -47,7 +47,14 @@ Un marco es un archivo JSON con sus requisitos. Cada requisito se enlaza con con
 
 ![Importar un marco](docs/capturas/importar-marco.png)
 
-### Opción A · Desde la aplicación (en tu navegador)
+### Opción A · Desde el PDF de la norma
+
+1. En *Marcos normativos*, arrastrá el PDF a **Agregar un marco**. Se lee en tu navegador con [pdf.js](https://github.com/mozilla/pdf.js) y no sale del equipo.
+2. El asistente detecta los requisitos: artículos ("Artículo 5", "Article 3"), cláusulas numeradas (4.1, A.5.15), códigos de control (GV.OC-01, AC-2) o secciones. Descarta índices, encabezados y pies de página.
+3. Sugiere hasta tres controles del catálogo por requisito, por similitud de texto en español o en inglés. En las pruebas con DORA, ISO/IEC 27001 y NIST CSF 2.0, la primera sugerencia coincidió con el mapeo curado a mano entre el 76 % y el 86 % de las veces.
+4. Revisás, corregís y creás el marco. Los PDF escaneados (sin texto) necesitan un reconocimiento de texto (OCR) previo.
+
+### Opción B · Desde la plantilla Excel o JSON (en tu navegador)
 
 1. *Marcos normativos* › **Plantilla Excel** (o descargá [`templates/plantilla-marco.xlsx`](templates/plantilla-marco.xlsx)).
 2. Completá las hojas **Marco**, **Grupos** (opcional) y **Requisitos**. En `controles_total`, `controles_parcial` y `controles_relacion` escribí los ids del catálogo separados por coma. La hoja **Catalogo** los lista todos.
@@ -55,7 +62,7 @@ Un marco es un archivo JSON con sus requisitos. Cada requisito se enlaza con con
 4. Arrastrá el archivo a **Agregar un marco**. Se valida (ids únicos, controles existentes, fuerzas válidas) y, si no hay errores, queda disponible al instante.
 5. Los requisitos que queden sin mapear se completan con **Editar mapeos**.
 
-### Opción B · En el repositorio (disponible para todos)
+### Opción C · En el repositorio (disponible para todos)
 
 1. Exportá el marco en JSON desde su tarjeta en la aplicación, o convertí la plantilla:
 
@@ -121,7 +128,7 @@ flowchart LR
   H --> GP[GitHub Pages]
 ```
 
-- **Sin framework ni dependencias en ejecución.** JavaScript plano, plantillas y delegación de eventos (`data-act`). La librería de Excel ([ExcelJS](https://github.com/exceljs/exceljs), MIT) se carga solo al importar o exportar Excel.
+- **Sin framework ni dependencias en ejecución.** JavaScript plano, plantillas y delegación de eventos (`data-act`). Las librerías de Excel ([ExcelJS](https://github.com/exceljs/exceljs), MIT) y de PDF ([pdf.js](https://github.com/mozilla/pdf.js), Apache-2.0) se cargan solo cuando se usan, desde el mismo origen y con SRI.
 - **Motor independiente de la interfaz.** `babel-engine.js` funciona en el navegador y en Node, y se prueba sin navegador.
 - **Marcos como datos.** Agregar un marco no requiere tocar código.
 
@@ -163,7 +170,7 @@ babel-grc/
 ## Seguridad y privacidad
 
 - Sin servidor, cuentas ni telemetría. Los proyectos y los marcos importados se guardan en el `localStorage` del navegador. Exportá copias de seguridad.
-- **Content-Security-Policy** con hashes SHA-256 de cada bloque: sin `unsafe-inline`, `connect-src 'none'` y ningún recurso de terceros.
+- **Content-Security-Policy** con hashes SHA-256 de cada bloque: sin `unsafe-inline` ni recursos de terceros; `connect-src` y `worker-src` limitados al propio sitio (el lector de PDF usa un worker y mapas de caracteres locales).
 - La librería de Excel se sirve desde el mismo origen con **SRI** (SHA-384).
 - Los archivos importados se validan y normalizan: tipos, longitudes y referencias. Todo el texto se escapa al mostrarse.
 - Las exportaciones a CSV y Excel neutralizan fórmulas (`=`, `+`, `-`, `@`).

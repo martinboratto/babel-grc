@@ -5,7 +5,7 @@
  * - Valida el catálogo y cada marco con el motor: si hay errores, el build falla.
  * - Incrusta datos, estilos y scripts, y genera la CSP con el hash de cada bloque.
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, rmSync, existsSync, cpSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -57,6 +57,9 @@ export function build({ out = join(ROOT, 'dist') } = {}) {
   if (!existsSync(vendorSrc)) throw new Error('Falta node_modules/exceljs: ejecutá «npm ci».');
   const vendor = readFileSync(vendorSrc);
   const vendorSri = sha('sha384', vendor);
+  const pdfDir = join(ROOT, 'node_modules/pdfjs-dist');
+  if (!existsSync(join(pdfDir, 'build/pdf.min.mjs'))) throw new Error('Falta node_modules/pdfjs-dist: ejecutá «npm ci».');
+  const pdfSri = sha('sha384', readFileSync(join(pdfDir, 'build/pdf.min.mjs')));
 
   const fws = src.frameworks.map(f => f.data).sort((a, b) => (a.order ?? 100) - (b.order ?? 100) || a.id.localeCompare(b.id));
   const data = {
@@ -64,28 +67,28 @@ export function build({ out = join(ROOT, 'dist') } = {}) {
     catalog: src.catalog,
     frameworks: fws,
     example: json('src/data/ejemplo.json'),
-    vendor: { exceljs: vendorSri }
+    vendor: { exceljs: vendorSri, pdfjs: pdfSri }
   };
   const dataJson = JSON.stringify(data).replace(/</g, '\\u003c').replace(/[\u2028\u2029]/g, c => '\\u' + c.charCodeAt(0).toString(16));
 
   const css = read('src/styles/app.css');
   const appFiles = readdirSync(join(ROOT, 'src/app')).filter(f => f.endsWith('.js')).sort();
   const app = appFiles.map(f => `/* ---- ${f} ---- */\n` + read('src/app/' + f)).join('\n');
-  const js = read('src/engine/babel-engine.js') + '\n;(function () {\n' + app + '\n})();\n';
+  const js = read('src/engine/babel-engine.js') + '\n' + read('src/engine/babel-pdf.js') + '\n;(function () {\n' + app + '\n})();\n';
   if (/<\/script/i.test(js) || /<\/style/i.test(css)) throw new Error('El código contiene una etiqueta de cierre no permitida.');
 
   const csp = [
     "default-src 'none'",
-    `script-src '${sha('sha256', js)}' '${vendorSri}' 'self'`,
+    `script-src '${sha('sha256', js)}' '${vendorSri}' '${pdfSri}' 'self'`,
     `style-src '${sha('sha256', css)}'`,
     "img-src 'self' data:",
-    "connect-src 'none'",
+    "connect-src 'self'",
     "font-src 'none'",
     "object-src 'none'",
     "base-uri 'none'",
     "form-action 'none'",
     "manifest-src 'none'",
-    "worker-src 'none'"
+    "worker-src 'self'"
   ].join('; ');
 
   let html = read('src/index.html');
@@ -103,8 +106,12 @@ export function build({ out = join(ROOT, 'dist') } = {}) {
   writeFileSync(join(out, 'index.html'), html);
   copyFileSync(vendorSrc, join(out, 'vendor/exceljs.min.js'));
   copyFileSync(join(ROOT, 'node_modules/exceljs/LICENSE'), join(out, 'vendor/exceljs.LICENSE.txt'));
+  copyFileSync(join(pdfDir, 'build/pdf.min.mjs'), join(out, 'vendor/pdf.min.mjs'));
+  copyFileSync(join(pdfDir, 'build/pdf.worker.min.mjs'), join(out, 'vendor/pdf.worker.min.mjs'));
+  copyFileSync(join(pdfDir, 'LICENSE'), join(out, 'vendor/pdfjs.LICENSE.txt'));
+  cpSync(join(pdfDir, 'cmaps'), join(out, 'vendor/cmaps'), { recursive: true });
   writeFileSync(join(out, '.nojekyll'), '');
-  return { out, bytes: Buffer.byteLength(html), frameworks: fws.map(f => `${f.id} (${f.requirements.length})`), controls: src.catalog.controls.length, csp, js, css, vendorSri };
+  return { out, bytes: Buffer.byteLength(html), frameworks: fws.map(f => `${f.id} (${f.requirements.length})`), controls: src.catalog.controls.length, csp, js, css, vendorSri, pdfSri };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

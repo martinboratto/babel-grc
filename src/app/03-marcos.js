@@ -46,10 +46,10 @@ VIEWS.marcos = () => {
       <div class="card">
         <h2>Agregar un marco</h2>
         <div class="drop" id="fw-drop">
-          <p><strong>Arrastrá aquí</strong> un archivo <code>.json</code> o <code>.xlsx</code> con el marco, o</p>
+          <p><strong>Arrastrá aquí</strong> el PDF de la norma, o un archivo <code>.xlsx</code> o <code>.json</code> con el marco, o</p>
           <div class="mt-s"><button class="btn primary" data-act="fw-pick" type="button">Elegir archivo…</button></div>
         </div>
-        <p class="small muted">El archivo se valida antes de agregarlo: ids únicos, controles existentes y fuerzas de enlace válidas. Queda guardado en este navegador.</p>
+        <p class="small muted">Con un <strong>PDF</strong>, un asistente detecta los artículos o cláusulas y sugiere los controles de cada uno para que los revises. Excel y JSON se validan antes de agregarse. Todo queda guardado en este navegador; el PDF no sale del equipo.</p>
       </div>
       <div class="card">
         <h2>Plantillas</h2>
@@ -71,7 +71,7 @@ CHG['fw-scope'] = el => {
   p.scope = el.checked ? p.scope.filter(x => x !== id).concat(id) : p.scope.filter(x => x !== id);
   saveProjects(); render(); toast(el.checked ? 'Marco agregado al alcance' : 'Marco quitado del alcance');
 };
-ACT['fw-pick'] = () => pickFile('.json,.xlsx,application/json,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', handleFrameworkFile);
+ACT['fw-pick'] = () => pickFile('.pdf,.json,.xlsx,application/pdf,application/json,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', handleFrameworkFile);
 ACT['fw-json'] = t => {
   const f = fw(t.dataset.fw); if (!f) return;
   const out = Object.assign({ $schema: '../schema/framework.schema.json' }, f);
@@ -139,6 +139,7 @@ ACT['cat-csv'] = () => {
 /* ---------- importación ---------- */
 async function handleFrameworkFile(file) {
   try {
+    if (/\.pdf$/i.test(file.name) || file.type === 'application/pdf') { startPdfWizard(file); return; }
     let parsed;
     if (/\.xlsx$/i.test(file.name)) parsed = E.frameworkFromSheets(await readWorkbook(await readFile(file, true)));
     else parsed = JSON.parse(await readFile(file));

@@ -21,7 +21,12 @@ test('genera index.html autocontenido y vendor', () => {
 test('la CSP usa hashes y no permite unsafe-inline ni conexiones', () => {
   const csp = /http-equiv="Content-Security-Policy" content="([^"]+)"/.exec(html)[1];
   assert.ok(!csp.includes('unsafe-inline') && !csp.includes('unsafe-eval'));
-  assert.ok(csp.includes("connect-src 'none'") && csp.includes("default-src 'none'"));
+  assert.ok(csp.includes("connect-src 'self'") && csp.includes("default-src 'none'"), 'solo conexiones al propio origen (mapas de caracteres del lector de PDF)');
+  assert.ok(!/connect-src[^;]*(https?:|\*)/.test(csp), 'sin conexiones a terceros');
+  assert.ok(csp.includes("worker-src 'self'"));
+  const pdf = readFileSync(join(out, 'vendor/pdf.min.mjs'));
+  assert.ok(csp.includes('sha384-' + createHash('sha384').update(pdf).digest('base64')));
+  assert.ok(existsSync(join(out, 'vendor/pdf.worker.min.mjs')) && existsSync(join(out, 'vendor/cmaps')));
   const sha = s => "'sha256-" + createHash('sha256').update(s).digest('base64') + "'";
   assert.ok(csp.includes(sha(r.js)), 'hash del script');
   assert.ok(csp.includes(sha(r.css)), 'hash del estilo');

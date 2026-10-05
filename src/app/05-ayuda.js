@@ -35,7 +35,15 @@ VIEWS.ayuda = () => head('Ayuda', 'Cómo funciona Babel GRC, cómo se calcula el
   </div>
   <div class="card prose">
     <h2>Sumar un marco nuevo</h2>
-    <h3>Desde la aplicación (solo en tu navegador)</h3>
+    <h3>Desde un PDF de la norma</h3>
+    <ol>
+      <li>En <strong>Marcos normativos › Agregar un marco</strong>, elegí o arrastrá el PDF. Se lee en tu navegador: el archivo no sale del equipo.</li>
+      <li>El asistente detecta cómo están organizados los requisitos (artículos, cláusulas numeradas como 4.1 o A.5.15, códigos como GV.OC-01, secciones) y recomienda una opción. Ignora índices, encabezados y pies de página.</li>
+      <li>Para cada requisito sugiere hasta tres controles del catálogo por similitud de texto, en español o en inglés. Los artículos de forma (objeto, definiciones, entrada en vigor) quedan desmarcados.</li>
+      <li>Revisá: incluí o excluí requisitos, corregí títulos y confirmá, quitá o agregá controles. Las sugerencias son un punto de partida, no un mapeo definitivo.</li>
+      <li>Si el PDF es una imagen escaneada, no tiene texto: pasalo antes por un reconocimiento de texto (OCR).</li>
+    </ol>
+    <h3>Desde la plantilla (Excel o JSON)</h3>
     <ol>
       <li>En <strong>Marcos normativos</strong>, descargá la <em>Plantilla Excel</em> (o la JSON).</li>
       <li>Completá la hoja «Marco» con el id y el nombre, y la hoja «Requisitos» con una fila por requisito.</li>

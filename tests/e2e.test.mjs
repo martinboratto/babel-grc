@@ -270,3 +270,37 @@ test('foto del período: exporta Excel + JSON, verifica, detecta alteraciones y 
   assert.deepEqual(page.errors, []);
   await page.close();
 });
+
+test('importa un marco desde PDF: detecta artículos, sugiere controles y crea el marco', async () => {
+  const page = await newPage();
+  await page.click('[data-act="load-example"]');
+  await page.goto(URL_APP + '#/marcos');
+  await pickFramework(page, fixture('fixtures/norma-ficticia.pdf'));
+  await page.waitForSelector('text=Importar marco desde PDF', { timeout: 30000 });
+  assert.equal(await page.inputValue('#pw-name'), 'norma-ficticia', 'el nombre sale del archivo, no de los metadatos');
+  assert.match(await page.textContent('#modal'), /Artículos \(Artículo 5, Art\. 12, Article 3…\) · 8 detectado\(s\)/);
+  await page.fill('#pw-name', 'Norma NF 1/2026 (ficticia)');
+  await page.fill('#pw-id', 'nf-1-2026');
+  await page.click('[data-act="pw-next"]');
+  await page.waitForSelector('text=Revisar requisitos y controles');
+  assert.match(await page.textContent('#modal'), /5 de 8 incluidos/, 'objeto, definiciones y entrada en vigor quedan fuera');
+  const chips = await page.locator('#modal tbody tr').nth(3).locator('.chip.ok, .chip.warn').allTextContents();
+  assert.ok(chips.some(t => /OPE-06/.test(t)), 'copias de seguridad → OPE-06');
+  // Quitar una sugerencia y sumar un control a mano
+  await page.locator('#modal tbody tr').nth(3).locator('[data-act="pw-del"]').first().click();
+  await page.fill('#pw-c-3', 'CON-07');
+  await page.click('#modal [data-act="pw-add"][data-i="3"]:not([data-c])');
+  assert.match(await page.locator('#modal tbody tr').nth(3).textContent(), /CON-07/);
+  await page.click('[data-act="pw-create"]');
+  await page.waitForSelector('text=Revisar marco');
+  await page.click('#modal [data-act="modal-ok"]');
+  await page.waitForSelector('main >> text=Norma NF 1/2026 (ficticia)');
+  await page.goto(URL_APP + '#/requisitos?fw=nf-1-2026');
+  await page.waitForSelector('main >> text=Copias de seguridad');
+  assert.equal(await page.locator('main tbody tr:not(.group)').count(), 5);
+  await page.goto(URL_APP + '#/resumen');
+  await page.waitForSelector('.score .big');
+  assert.equal((await scores(page)).length, 3);
+  assert.deepEqual(page.errors, []);
+  await page.close();
+});

@@ -191,11 +191,11 @@ function closeDrawer(silent) {
   if (!silent && lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
 }
 let modalOk = null;
-function openModal(html, onOk) {
+function openModal(html, onOk, wide) {
   const m = document.getElementById('modal');
   if (m.hidden) lastFocus = document.activeElement;
   modalOk = onOk || null;
-  m.innerHTML = `<div class="panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">${html}</div>`;
+  m.innerHTML = `<div class="panel${wide ? ' wide' : ''}" role="dialog" aria-modal="true" aria-labelledby="modal-title">${html}</div>`;
   m.hidden = false; post(m);
   const f = m.querySelector('[autofocus]') || m.querySelector('input,select,textarea,button');
   if (f) f.focus();
@@ -239,9 +239,10 @@ function download(name, content, type) {
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 }
 function slug(s) { return String(s || 'proyecto').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase().slice(0, 60) || 'proyecto'; }
-function readFile(file, asBuffer) {
+function readFile(file, asBuffer, maxBytes) {
+  const max = maxBytes || MAX_IMPORT_BYTES;
   return new Promise((res, rej) => {
-    if (file.size > MAX_IMPORT_BYTES) return rej(new Error('El archivo supera ' + (MAX_IMPORT_BYTES / 1048576) + ' MB.'));
+    if (file.size > max) return rej(new Error('El archivo supera ' + (max / 1048576) + ' MB.'));
     const r = new FileReader();
     r.onload = () => res(r.result); r.onerror = () => rej(new Error('No se pudo leer el archivo.'));
     if (asBuffer) r.readAsArrayBuffer(file); else r.readAsText(file);

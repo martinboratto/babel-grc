@@ -1,5 +1,16 @@
 # Cambios
 
+## 1.2.0 · 2026-10-05
+
+Importación de marcos desde PDF.
+
+- **Asistente PDF** en *Marcos normativos*: lectura en el navegador con pdf.js (el archivo no sale del equipo), detección de requisitos por artículos, cláusulas numeradas (con prefijo de anexo), códigos de control o secciones; limpieza de índices, encabezados, pies y referencias cruzadas.
+- **Sugerencia de controles** por similitud de texto (TF-IDF con diccionario español/inglés). Contra los mapeos curados: primera sugerencia correcta en el 76–86 % de los casos, alguna de las tres en el 81–90 % (DORA en español e inglés, ISO/IEC 27001).
+- Revisión antes de crear el marco: incluir o excluir requisitos, editar títulos, alternar enlace total o parcial, quitar o agregar controles; los artículos de forma (objeto, definiciones, entrada en vigor) vienen desmarcados.
+- Opción de guardar un extracto del texto original (400 caracteres por requisito) con aviso de derechos de autor.
+- CSP: `worker-src 'self'` y `connect-src 'self'` para el lector de PDF; SRI para `vendor/pdf.min.mjs`.
+- Nuevo módulo `src/engine/babel-pdf.js` con 8 pruebas unitarias y 1 E2E sobre un PDF ficticio.
+
 ## 1.1.0 · 2026-10-05
 
 Fotos del período: pruebas verificables del estado de cumplimiento en un momento dado.

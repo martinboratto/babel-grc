@@ -1,5 +1,14 @@
 # Cambios
 
+## 1.1.0 · 2026-10-05
+
+Fotos del período: pruebas verificables del estado de cumplimiento en un momento dado.
+
+- **Exportar › Foto del período**: período, desde/hasta, autor y nota. Descarga un Excel (hoja «Foto» con los datos del período, el cumplimiento por marco y el código de verificación, más SoA, controles, plan y alertas) y un JSON con el mismo contenido, sellados con SHA-256.
+- **Verificar una foto**: recalcula el código e indica si la foto está íntegra o fue alterada; la compara con el estado actual o con otra foto (variación por marco, requisitos que mejoran o empeoran y controles que cambiaron de estado).
+- Motor: `snapshot`, `sealSnapshot`, `verifySnapshot` y `compareSnapshots`.
+- Pruebas: 2 unitarias y 1 E2E nuevas (29 y 10 en total).
+
 ## 1.0.1 · 2026-10-05
 
 Corrección de visualización: contenidos que se salían de las tarjetas.

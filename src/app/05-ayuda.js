@@ -22,6 +22,14 @@ VIEWS.ayuda = () => head('Ayuda', 'Cómo funciona Babel GRC, cómo se calcula el
       <li><strong>Equivalencia</strong> entre dos requisitos de marcos distintos: existe si comparten un control. Es total si ambos enlaces son totales, parcial si alguno es parcial y relación si alguno es informativo.</li>
       <li><strong>Solapamiento A → B</strong>: parte de B cubierta al implantar los controles que A exige con enlace total.</li>
     </ul>
+    <h2>Fotos del período</h2>
+    <p>En <strong>Exportar › Foto del período</strong> congelás el estado del proyecto como prueba de un período (por ejemplo, el cierre de un trimestre o el día previo a una auditoría). Se descargan dos archivos:</p>
+    <ul>
+      <li><strong>Excel</strong>: hoja «Foto» con el período, la fecha y hora, quién la elaboró, el cumplimiento de cada marco y el código de verificación, más la declaración de aplicabilidad, controles, plan y alertas tal como estaban.</li>
+      <li><strong>JSON</strong>: el mismo contenido en formato verificable.</li>
+    </ul>
+    <p>Con <strong>Verificar una foto</strong> elegís el JSON: la herramienta recalcula el código SHA-256 e indica si la foto está íntegra o si se modificó. También la compara con el estado actual o con otra foto (variación por marco, requisitos que mejoraron o empeoraron y controles que cambiaron de estado).</p>
+    <p>El código demuestra que el archivo no cambió, pero quien edite el archivo también podría recalcularlo. Para que funcione como prueba, <strong>registrá el código fuera del archivo</strong>: en el acta, un correo o un ticket con fecha.</p>
     <h2>Privacidad</h2>
     <p>Babel GRC funciona por completo en tu navegador. No hay servidor, cuentas ni telemetría; los proyectos y los marcos importados se guardan en el almacenamiento local del navegador. La política de seguridad de contenido bloquea cualquier conexión externa.</p>
   </div>

@@ -206,3 +206,67 @@ test('ningún contenido se desborda, aunque un marco nuevo tenga nombres, URLs y
     await page.close();
   }
 });
+
+test('foto del período: exporta Excel + JSON, verifica, detecta alteraciones y compara', async () => {
+  const { readFileSync } = await import('node:fs');
+  const page = await newPage();
+  await page.click('[data-act="load-example"]');
+  await page.goto(URL_APP + '#/exportar');
+  await page.click('[data-act="foto-export"]');
+  await page.waitForSelector('text=Indicá el período de la foto.');
+  await page.fill('#ft-period', '3.er trimestre 2026');
+  await page.fill('#ft-author', 'Martín Boratto · CISO');
+  await page.fill('#ft-from', '2026-07-01');
+  await page.fill('#ft-to', '2026-09-30');
+  const downloads = [];
+  page.on('download', d => downloads.push(d));
+  await page.click('[data-act="foto-export"]');
+  await page.waitForSelector('#ft-hash', { timeout: 20000 });
+  await page.waitForTimeout(300);
+  const names = downloads.map(d => d.suggestedFilename()).sort();
+  assert.equal(names.length, 2);
+  assert.match(names[0], /^babel-grc-foto-.*-3-er-trimestre-2026-\d{8}-\d{4}\.json$/);
+  assert.match(names[1], /\.xlsx$/);
+  const shown = (await page.textContent('#ft-hash')).trim();
+  const jsonPath = await downloads.find(d => d.suggestedFilename().endsWith('.json')).path();
+  const foto = JSON.parse(readFileSync(jsonPath, 'utf8'));
+  assert.equal(foto.sha256, shown);
+  assert.equal(foto.content.period.label, '3.er trimestre 2026');
+  assert.deepEqual(foto.content.project.scope, ['iso27001-2022', 'dora']);
+
+  // Verificación de la foto original
+  const verify = async (buffer, name) => {
+    const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.click('[data-act="foto-verify"]')]);
+    await chooser.setFiles({ name, mimeType: 'application/json', buffer });
+    await page.waitForSelector('#modal:not([hidden]) #modal-title');
+    return page.textContent('#modal-title');
+  };
+  assert.match(await verify(readFileSync(jsonPath), 'foto.json'), /Foto íntegra/);
+  assert.match(await page.textContent('#modal'), /Comparación con el estado actual/);
+
+  // Comparación con una segunda foto tomada después de un cambio
+  await page.click('#modal [data-act="modal-close"]');
+  await page.goto(URL_APP + '#/resumen');
+  await page.locator('main select.st').first().selectOption('implemented');   // primera prioridad: un control pendiente
+  await page.goto(URL_APP + '#/exportar');
+  assert.equal(await page.inputValue('#ft-author'), 'Martín Boratto · CISO', 'el formulario conserva los datos');
+  await page.fill('#ft-period', '4.º trimestre 2026');
+  downloads.length = 0;
+  await page.click('[data-act="foto-export"]');
+  await page.waitForTimeout(1500);
+  const json2 = await downloads.find(d => d.suggestedFilename().endsWith('.json')).path();
+  await verify(readFileSync(jsonPath), 'foto1.json');
+  const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.click('#modal [data-act="foto-compare"]')]);
+  await chooser.setFiles(json2);
+  await page.waitForSelector('text=Comparación de fotos');
+  assert.match(await page.textContent('#modal'), /3\.er trimestre 2026 → 4\.º trimestre 2026/);
+  assert.match(await page.textContent('#modal'), /control\(es\) cambiaron de estado/);
+  await page.click('#modal [data-act="modal-close"]');
+
+  // Alteración: cambiar un porcentaje invalida la foto
+  const altered = JSON.parse(readFileSync(jsonPath, 'utf8'));
+  altered.content.results.dora.score = 0.99;
+  assert.match(await verify(Buffer.from(JSON.stringify(altered)), 'alterada.json'), /Foto alterada/);
+  assert.deepEqual(page.errors, []);
+  await page.close();
+});

@@ -539,6 +539,114 @@
     return L.join('\n') + '\n';
   }
 
+  /* ------------------------------------------------------------------ *
+   * Foto del período: estado congelado y verificable                   *
+   * ------------------------------------------------------------------ */
+
+  var SNAPSHOT_FORMAT = 'babel-grc-foto';
+
+  /**
+   * Construye el contenido de una foto: estado del proyecto, versión de cada marco
+   * y resultados calculados en ese momento. Es puro: solo depende de `meta.takenAt` como fecha.
+   * meta: { period, from, to, author, note, takenAt (ISO), appVersion }
+   */
+  function snapshot(model, project, meta) {
+    meta = meta || {};
+    var scope = inScope(model, project);
+    var controls = {};
+    Object.keys(project.controls || {}).sort().forEach(function (id) {
+      if (!model.controls.has(id)) return;
+      var s = ctrlState(project, id);
+      controls[id] = { status: s.status, owner: s.owner, evidence: s.evidence, reviewed: s.reviewed, due: s.due, plan: s.plan, notes: s.notes };
+    });
+    var exclusions = {};
+    scope.forEach(function (f) {
+      var ex = project.exclusions && own(project.exclusions, f) ? project.exclusions[f] : null;
+      if (ex && Object.keys(ex).length) {
+        exclusions[f] = {};
+        Object.keys(ex).sort().forEach(function (r) { exclusions[f][r] = str(ex[r]); });
+      }
+    });
+    var results = {};
+    scope.forEach(function (f) {
+      var fw = model.frameworks.get(f), s = frameworkScore(model, project, f), reqs = {};
+      fw.requirements.forEach(function (r) { var c = requirementCoverage(model, project, f, r.id); reqs[r.id] = [c.value, c.state]; });
+      results[f] = { score: s.score, applicable: s.applicable, counts: s.counts, requirements: reqs };
+    });
+    var al = coherence(model, project, Date.parse(meta.takenAt) || Date.now());
+    var count = function (k) { return al.filter(function (a) { return a.severity === k; }).length; };
+    return {
+      format: SNAPSHOT_FORMAT, formatVersion: 1,
+      appVersion: str(meta.appVersion),
+      takenAt: str(meta.takenAt),
+      period: { label: str(meta.period).slice(0, 120), from: str(meta.from).slice(0, 10), to: str(meta.to).slice(0, 10) },
+      author: str(meta.author).slice(0, 120),
+      note: str(meta.note).slice(0, 2000),
+      project: { name: str(project.name), scope: scope.slice() },
+      frameworks: scope.map(function (f) {
+        var fw = model.frameworks.get(f);
+        return { id: fw.id, name: fw.name, version: str(fw.version), frameworkVersion: str(fw.frameworkVersion), requirements: fw.requirements.length };
+      }),
+      results: results,
+      alerts: { alta: count('alta'), media: count('media'), baja: count('baja') },
+      state: { controls: controls, exclusions: exclusions }
+    };
+  }
+
+  function getSubtle() {
+    var c = (typeof globalThis !== 'undefined' && globalThis.crypto) || (typeof self !== 'undefined' && self.crypto);
+    if (!c || !c.subtle) throw new Error('El navegador no permite calcular el código de verificación (se requiere HTTPS o localhost).');
+    return c.subtle;
+  }
+
+  /** SHA-256 (hex) del contenido serializado tal como se guarda en el archivo. */
+  function hashSnapshot(content) {
+    var bytes = new TextEncoder().encode(JSON.stringify(content));
+    return getSubtle().digest('SHA-256', bytes).then(function (buf) {
+      return Array.from(new Uint8Array(buf)).map(function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+    });
+  }
+
+  /** Arma el archivo de foto: { format, sha256, content }. */
+  function sealSnapshot(content) {
+    return hashSnapshot(content).then(function (h) { return { format: SNAPSHOT_FORMAT, sha256: h, content: content }; });
+  }
+
+  /** Verifica un archivo de foto. Devuelve { ok, reason, content, sha256, computed }. */
+  function verifySnapshot(file) {
+    if (!isObj(file) || file.format !== SNAPSHOT_FORMAT || !isObj(file.content) || typeof file.sha256 !== 'string')
+      return Promise.resolve({ ok: false, reason: 'El archivo no es una foto de Babel GRC.' });
+    if (file.content.format !== SNAPSHOT_FORMAT) return Promise.resolve({ ok: false, reason: 'Formato de contenido desconocido.' });
+    return hashSnapshot(file.content).then(function (h) {
+      var ok = h === file.sha256.toLowerCase();
+      return { ok: ok, reason: ok ? '' : 'El código de verificación no coincide: el contenido se modificó después de exportarse.', content: file.content, sha256: file.sha256, computed: h };
+    });
+  }
+
+  /** Compara dos fotos (o una foto con el estado actual expresado como foto). */
+  function compareSnapshots(a, b) {
+    var ids = [];
+    Object.keys(a.results || {}).concat(Object.keys(b.results || {})).forEach(function (f) { if (ids.indexOf(f) < 0) ids.push(f); });
+    var frameworksOut = ids.map(function (f) {
+      var ra = (a.results || {})[f], rb = (b.results || {})[f];
+      var improved = 0, worsened = 0;
+      if (ra && rb) Object.keys(rb.requirements).forEach(function (r) {
+        var va = ra.requirements[r] ? ra.requirements[r][0] : 0, vb = rb.requirements[r][0];
+        if (vb > va + 1e-9) improved++; else if (vb < va - 1e-9) worsened++;
+      });
+      return { fw: f, before: ra ? ra.score : null, after: rb ? rb.score : null, delta: ra && rb ? round(rb.score - ra.score, 4) : null, improved: improved, worsened: worsened };
+    });
+    var ca = (a.state || {}).controls || {}, cb = (b.state || {}).controls || {};
+    var seen = {}, changed = [];
+    Object.keys(ca).concat(Object.keys(cb)).forEach(function (id) {
+      if (seen[id]) return; seen[id] = true;
+      var sa = own(ca, id) ? ca[id].status : 'pending', sb = own(cb, id) ? cb[id].status : 'pending';
+      if (sa !== sb) changed.push({ control: id, before: sa, after: sb });
+    });
+    changed.sort(function (x, y) { return x.control < y.control ? -1 : 1; });
+    return { frameworks: frameworksOut, controls: changed };
+  }
+
   return {
     STRENGTH: STRENGTH, STRENGTH_LABEL: STRENGTH_LABEL, STATUS: STATUS, STATUS_LABEL: STATUS_LABEL, STATE_LABEL: STATE_LABEL,
     buildModel: buildModel, rkey: rkey, validateFramework: validateFramework, normalizeFramework: normalizeFramework,
@@ -546,6 +654,7 @@
     requirementCoverage: requirementCoverage, frameworkScore: frameworkScore, priorities: priorities,
     equivalences: equivalences, overlap: overlap, coherence: coherence, domainSummary: domainSummary,
     frameworkFromSheets: frameworkFromSheets, frameworkToSheets: frameworkToSheets,
-    safeCell: safeCell, csv: csv, soaRows: soaRows, controlRows: controlRows, markdownReport: markdownReport
+    safeCell: safeCell, csv: csv, soaRows: soaRows, controlRows: controlRows, markdownReport: markdownReport,
+    snapshot: snapshot, hashSnapshot: hashSnapshot, sealSnapshot: sealSnapshot, verifySnapshot: verifySnapshot, compareSnapshots: compareSnapshots
   };
 });

@@ -14,9 +14,9 @@ Arranca con **ISO/IEC 27001:2022** y **DORA (Reglamento UE 2022/2554)**. Además
 babel-grc
 ├─ marcos:      ISO/IEC 27001:2022 (118 requisitos) · DORA (109 requisitos) · + los que agregues
 ├─ catálogo:    147 controles unificados en 14 dominios
-├─ cálculo:     cobertura ponderada · equivalencias · solapamiento · 10 reglas de coherencia · plan priorizado
+├─ cálculo:     cobertura ponderada · equivalencias · solapamiento · 10 reglas de coherencia · plan priorizado · fotos del período verificables
 ├─ aplicación:  HTML + CSS + JavaScript sin framework · un único index.html · tema claro y oscuro · móvil
-├─ pruebas:     node:test (27) · Playwright E2E (9, incluida una prueba de desbordes con marcos de textos extremos)
+├─ pruebas:     node:test (29) · Playwright E2E (10)
 └─ seguridad:   CSP con hashes · SRI · cero peticiones a terceros · neutralización de fórmulas
 ```
 
@@ -38,7 +38,8 @@ babel-grc
 2. **Controles.** Registrá el estado de cada control (implantado, parcial, pendiente o no aplica), con responsable, evidencias, fecha de revisión y fecha objetivo. Cada cambio recalcula todos los marcos.
 3. **Requisitos y SoA.** Revisá la declaración de aplicabilidad de cada marco. Lo que no aplique se excluye con justificación, solo si el requisito admite exclusión (por ejemplo, las cláusulas 4–10 de ISO 27001 no la admiten).
 4. **Revisión.** Usá *Equivalencias*, *Brechas y coherencia* y el *Plan de acción*, ordenado por el aporte de cada control en todos los marcos.
-5. **Entrega.** Exportá un Excel con la SoA de cada marco, controles, plan y alertas, o un informe en Markdown, un CSV, el proyecto en JSON o una copia de seguridad.
+5. **Foto del período.** En *Exportar*, congelá el estado del proyecto como prueba de un período: un Excel para presentar y un JSON verificable, ambos con el mismo código SHA-256. Después, *Verificar una foto* confirma que no se modificó y la compara con el estado actual o con otra foto.
+6. **Entrega.** Exportá un Excel con la SoA de cada marco, controles, plan y alertas, o un informe en Markdown, un CSV, el proyecto en JSON o una copia de seguridad.
 
 ## Agregar un marco normativo nuevo
 
@@ -78,7 +79,7 @@ La guía completa, con el formato y los criterios de mapeo, está en [`framework
 | **Brechas y coherencia** | Requisitos sin cubrir y 10 reglas: sin evidencias, sin responsable, sin revisión o revisión de más de 12 meses, «no aplica» exigido, plazo vencido, exclusiones no permitidas, sin justificar o contradictorias entre marcos, y requisitos sin mapear. |
 | **Plan de acción** | Tablero Pendiente / En curso / Hecha, ordenado por puntos de cumplimiento que aporta cada control. |
 | **Marcos normativos** | Alcance, importación y validación de marcos, plantillas, editor de mapeos y exportación JSON/Excel. |
-| **Exportar** | Excel, Markdown, CSV, JSON y copia de seguridad completa. |
+| **Exportar** | Foto del período (Excel + JSON con código de verificación), verificación y comparación de fotos; Excel, Markdown, CSV, JSON y copia de seguridad completa. |
 
 | | |
 |---|---|

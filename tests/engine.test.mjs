@@ -173,3 +173,36 @@ test('informe Markdown incluye marcos y prioridades', () => {
   assert.ok(md.includes('Marco A'));
   assert.ok(md.includes('AAA-01'));
 });
+
+test('foto: contenido, sello SHA-256 y verificación', async () => {
+  const m = model();
+  const p = proj({ 'AAA-01': { status: 'implemented', owner: 'Ana', evidence: 'Acta' } }, { 'marco-a': { A2: 'No aplica' } });
+  const meta = { period: '3.er trimestre 2026', from: '2026-07-01', to: '2026-09-30', author: 'Martín', note: 'Cierre', takenAt: '2026-10-05T12:00:00.000Z', appVersion: '1.1.0' };
+  const c = E.snapshot(m, p, meta);
+  assert.equal(c.format, 'babel-grc-foto');
+  assert.deepEqual(c.project.scope, ['marco-a', 'marco-b']);
+  assert.equal(c.results['marco-a'].counts.excluded, 1);
+  assert.deepEqual(c.results['marco-a'].requirements.A1, [1, 'covered']);
+  assert.equal(c.state.controls['AAA-01'].owner, 'Ana');
+  assert.deepEqual(E.snapshot(m, p, meta), c, 'determinista con la misma fecha');
+  const file = await E.sealSnapshot(c);
+  assert.match(file.sha256, /^[0-9a-f]{64}$/);
+  const roundTrip = JSON.parse(JSON.stringify(file));
+  assert.equal((await E.verifySnapshot(roundTrip)).ok, true);
+  roundTrip.content.results['marco-a'].score = 1;
+  const bad = await E.verifySnapshot(roundTrip);
+  assert.equal(bad.ok, false);
+  assert.match(bad.reason, /modificó/);
+  assert.equal((await E.verifySnapshot({ hola: 1 })).ok, false);
+});
+
+test('foto: comparación entre dos momentos', () => {
+  const m = model();
+  const meta = { takenAt: '2026-10-05T12:00:00.000Z' };
+  const a = E.snapshot(m, proj(), meta);
+  const b = E.snapshot(m, proj({ 'AAA-01': { status: 'implemented' } }), meta);
+  const d = E.compareSnapshots(a, b);
+  const fa = d.frameworks.find(x => x.fw === 'marco-a');
+  assert.ok(fa.delta > 0 && fa.improved === 2 && fa.worsened === 0);
+  assert.deepEqual(d.controls, [{ control: 'AAA-01', before: 'pending', after: 'implemented' }]);
+});

@@ -1,0 +1,1922 @@
+{
+  "$schema": "../schema/framework.schema.json",
+  "id": "dora",
+  "order": 2,
+  "name": "DORA · Reglamento (UE) 2022/2554",
+  "shortName": "DORA",
+  "version": "Reglamento (UE) 2022/2554 (aplicable desde 17/01/2025)",
+  "publisher": "Unión Europea",
+  "jurisdiction": "Unión Europea · sector financiero",
+  "type": "regulacion",
+  "color": "#0F8A6E",
+  "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
+  "description": "Resiliencia operativa digital del sector financiero: gestión del riesgo TIC, incidentes, pruebas de resiliencia, riesgo de terceros e intercambio de información.",
+  "notice": "Resúmenes propios del articulado. No incluye las normas técnicas de regulación (RTS/ITS) ni el marco simplificado del art. 16; el art. 19.5 y otras facultades opcionales no se modelan.",
+  "frameworkVersion": "1.0.0",
+  "groups": [
+    {
+      "id": "II",
+      "title": "Cap. II · Gestión del riesgo relacionado con las TIC (arts. 5–14)"
+    },
+    {
+      "id": "III",
+      "title": "Cap. III · Gestión, clasificación y notificación de incidentes (arts. 17–19)"
+    },
+    {
+      "id": "IV",
+      "title": "Cap. IV · Pruebas de resiliencia operativa digital (arts. 24–27)"
+    },
+    {
+      "id": "V",
+      "title": "Cap. V · Riesgo TIC derivado de terceros (arts. 28–30)"
+    },
+    {
+      "id": "VI",
+      "title": "Cap. VI · Intercambio de información (art. 45)"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "DORA-5.1",
+      "ref": "Art. 5.1",
+      "group": "II",
+      "title": "Marco interno de gobernanza y control",
+      "summary": "Disponer de un marco de gobernanza y control interno que garantice una gestión eficaz y prudente del riesgo TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-02",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-03",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-10",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.a-c",
+      "ref": "Art. 5.2.a-c",
+      "group": "II",
+      "title": "Responsabilidad última del órgano de dirección",
+      "summary": "El órgano de dirección define, aprueba y supervisa el marco de riesgo TIC, asume la responsabilidad última, adopta políticas de disponibilidad, autenticidad, integridad y confidencialidad y define roles claros.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-02",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-01",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-03",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.d",
+      "ref": "Art. 5.2.d",
+      "group": "II",
+      "title": "Aprobación de la estrategia y la tolerancia al riesgo TIC",
+      "summary": "El órgano de dirección aprueba la estrategia de resiliencia operativa digital y el nivel de tolerancia al riesgo TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-08",
+          "strength": "full"
+        },
+        {
+          "control": "RIE-04",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.e",
+      "ref": "Art. 5.2.e",
+      "group": "II",
+      "title": "Aprobación de la continuidad TIC",
+      "summary": "El órgano de dirección aprueba, supervisa y revisa la política de continuidad TIC y los planes de respuesta y recuperación.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-02",
+          "strength": "partial"
+        },
+        {
+          "control": "CON-04",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-02",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.f",
+      "ref": "Art. 5.2.f",
+      "group": "II",
+      "title": "Aprobación de los planes de auditoría TIC",
+      "summary": "El órgano de dirección aprueba y revisa los planes de auditoría interna de TIC y sus modificaciones.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-06",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-02",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.g",
+      "ref": "Art. 5.2.g",
+      "group": "II",
+      "title": "Presupuesto para la resiliencia",
+      "summary": "El órgano de dirección asigna y revisa un presupuesto adecuado, incluidas concienciación y formación.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-09",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.h",
+      "ref": "Art. 5.2.h",
+      "group": "II",
+      "title": "Política sobre servicios TIC de terceros",
+      "summary": "El órgano de dirección aprueba y revisa la política sobre el uso de servicios TIC de terceros.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-01",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.2.i",
+      "ref": "Art. 5.2.i",
+      "group": "II",
+      "title": "Canales de información al órgano de dirección",
+      "summary": "Canales para informar a la dirección de acuerdos con terceros, cambios relevantes e incidentes graves.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-12",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.3",
+      "ref": "Art. 5.3",
+      "group": "II",
+      "title": "Responsable de acuerdos con terceros TIC",
+      "summary": "Crear un cargo o designar a un miembro de la alta dirección para supervisar los acuerdos con proveedores TIC (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-11",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-5.4",
+      "ref": "Art. 5.4",
+      "group": "II",
+      "title": "Formación del órgano de dirección",
+      "summary": "Los miembros del órgano de dirección mantienen conocimientos suficientes sobre riesgo TIC mediante formación periódica.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-11",
+          "strength": "full"
+        },
+        {
+          "control": "PER-03",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.1",
+      "ref": "Art. 6.1",
+      "group": "II",
+      "title": "Marco de gestión del riesgo TIC",
+      "summary": "Marco sólido, completo y documentado dentro del sistema global de gestión de riesgos.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-01",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-16",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.2",
+      "ref": "Art. 6.2",
+      "group": "II",
+      "title": "Alcance del marco de riesgo TIC",
+      "summary": "El marco incluye estrategias, políticas, procedimientos y herramientas para proteger los activos de información, TIC y físicos.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "partial"
+        },
+        {
+          "control": "RIE-03",
+          "strength": "partial"
+        },
+        {
+          "control": "ACT-01",
+          "strength": "related"
+        },
+        {
+          "control": "FIS-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.3",
+      "ref": "Art. 6.3",
+      "group": "II",
+      "title": "Minimizar el impacto e informar a la autoridad",
+      "summary": "Minimizar las consecuencias del riesgo TIC y facilitar información completa a la autoridad que la solicite.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-03",
+          "strength": "partial"
+        },
+        {
+          "control": "CUM-12",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.4",
+      "ref": "Art. 6.4",
+      "group": "II",
+      "title": "Función de control y tres líneas",
+      "summary": "Encomendar el riesgo TIC a una función de control independiente, separada de la auditoría interna (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-10",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-04",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.5",
+      "ref": "Art. 6.5",
+      "group": "II",
+      "title": "Revisión anual del marco",
+      "summary": "Documentar y revisar el marco al menos una vez al año y tras incidentes graves o hallazgos; informe de revisión a la autoridad.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-08",
+          "strength": "partial"
+        },
+        {
+          "control": "CUM-10",
+          "strength": "partial"
+        },
+        {
+          "control": "CUM-12",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.6",
+      "ref": "Art. 6.6",
+      "group": "II",
+      "title": "Auditoría interna del marco",
+      "summary": "El marco es auditado periódicamente por auditores competentes e independientes (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-06",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.7",
+      "ref": "Art. 6.7",
+      "group": "II",
+      "title": "Seguimiento de hallazgos de auditoría",
+      "summary": "Proceso formal de seguimiento y corrección oportuna de los hallazgos de auditoría TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-09",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.8",
+      "ref": "Art. 6.8",
+      "group": "II",
+      "title": "Estrategia de resiliencia operativa digital",
+      "summary": "Estrategia con objetivos, tolerancia, KPI, arquitectura de referencia, mecanismos de detección, pruebas y comunicación.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-08",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-07",
+          "strength": "partial"
+        },
+        {
+          "control": "RIE-04",
+          "strength": "partial"
+        },
+        {
+          "control": "DES-03",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-6.9",
+      "ref": "Art. 6.9",
+      "group": "II",
+      "title": "Estrategia multiproveedor",
+      "summary": "Estrategia global multiproveedor que muestre dependencias clave y su justificación.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRO-08",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-08",
+          "strength": "related"
+        }
+      ],
+      "note": "Disposición voluntaria («podrán»): excluible si la entidad no la adopta."
+    },
+    {
+      "id": "DORA-7",
+      "ref": "Art. 7",
+      "group": "II",
+      "title": "Sistemas, protocolos y herramientas TIC",
+      "summary": "Usar y mantener sistemas TIC adecuados, fiables, con capacidad suficiente y tecnológicamente resilientes.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-12",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-03",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.1",
+      "ref": "Art. 8.1",
+      "group": "II",
+      "title": "Identificación y clasificación de funciones y activos",
+      "summary": "Identificar, clasificar y documentar funciones, activos y dependencias; revisar al menos anualmente.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACT-02",
+          "strength": "full"
+        },
+        {
+          "control": "ACT-05",
+          "strength": "partial"
+        },
+        {
+          "control": "ACT-01",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.2",
+      "ref": "Art. 8.2",
+      "group": "II",
+      "title": "Fuentes de riesgo, amenazas y escenarios",
+      "summary": "Identificar de forma continua las fuentes de riesgo TIC, evaluar amenazas y vulnerabilidades y revisar escenarios anualmente.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-02",
+          "strength": "full"
+        },
+        {
+          "control": "RIE-06",
+          "strength": "partial"
+        },
+        {
+          "control": "PRU-01",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.3",
+      "ref": "Art. 8.3",
+      "group": "II",
+      "title": "Evaluación de riesgos ante cambios",
+      "summary": "Evaluar el riesgo ante cada cambio importante en infraestructura, procesos o procedimientos (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-08",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.4",
+      "ref": "Art. 8.4",
+      "group": "II",
+      "title": "Inventario y mapa de activos esenciales",
+      "summary": "Identificar todos los activos, cartografiar los esenciales, su configuración e interdependencias.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACT-01",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-05",
+          "strength": "partial"
+        },
+        {
+          "control": "ACT-02",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.5",
+      "ref": "Art. 8.5",
+      "group": "II",
+      "title": "Procesos dependientes de terceros",
+      "summary": "Identificar y documentar los procesos que dependen de proveedores TIC y sus interconexiones.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACT-02",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-06",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.6",
+      "ref": "Art. 8.6",
+      "group": "II",
+      "title": "Inventarios actualizados",
+      "summary": "Mantener inventarios actualizados periódicamente y ante cambios importantes.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACT-01",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-8.7",
+      "ref": "Art. 8.7",
+      "group": "II",
+      "title": "Riesgo de sistemas heredados",
+      "summary": "Evaluar al menos anualmente el riesgo de los sistemas heredados y antes y después de conectar nuevas tecnologías (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-05",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.1",
+      "ref": "Art. 9.1",
+      "group": "II",
+      "title": "Seguimiento y control permanentes",
+      "summary": "Supervisar de forma continua la seguridad y el funcionamiento de los sistemas y minimizar el impacto del riesgo TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-08",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-12",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.2",
+      "ref": "Art. 9.2",
+      "group": "II",
+      "title": "Políticas para resiliencia y protección de datos",
+      "summary": "Políticas, procedimientos y herramientas que aseguren resiliencia, continuidad, disponibilidad y la protección de datos en reposo, uso y tránsito.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-12",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-11",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.3",
+      "ref": "Art. 9.3",
+      "group": "II",
+      "title": "Soluciones TIC para proteger los datos",
+      "summary": "Asegurar la transmisión, minimizar corrupción o pérdida de datos y errores de gestión.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACT-07",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-06",
+          "strength": "partial"
+        },
+        {
+          "control": "ACT-11",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.4.a",
+      "ref": "Art. 9.4.a",
+      "group": "II",
+      "title": "Política de seguridad de la información",
+      "summary": "Elaborar y documentar una política de seguridad de la información.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-01",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.4.b",
+      "ref": "Art. 9.4.b",
+      "group": "II",
+      "title": "Gestión de redes y segmentación",
+      "summary": "Estructura de redes sólida, con capacidad de segmentación o ruptura instantánea para evitar el contagio.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RED-01",
+          "strength": "full"
+        },
+        {
+          "control": "RED-03",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.4.c",
+      "ref": "Art. 9.4.c",
+      "group": "II",
+      "title": "Control de acceso físico y lógico",
+      "summary": "Limitar el acceso físico y lógico a lo necesario y gestionar los derechos de acceso.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACC-01",
+          "strength": "full"
+        },
+        {
+          "control": "ACC-04",
+          "strength": "full"
+        },
+        {
+          "control": "FIS-02",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.4.d",
+      "ref": "Art. 9.4.d",
+      "group": "II",
+      "title": "Autenticación fuerte y claves criptográficas",
+      "summary": "Mecanismos de autenticación fuerte y protección de las claves criptográficas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "ACC-08",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-11",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.4.e",
+      "ref": "Art. 9.4.e",
+      "group": "II",
+      "title": "Gestión de cambios en las TIC",
+      "summary": "Cambios registrados, probados, evaluados, aprobados, aplicados y verificados de forma controlada.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "DES-08",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-9.4.f",
+      "ref": "Art. 9.4.f",
+      "group": "II",
+      "title": "Parches y actualizaciones",
+      "summary": "Políticas documentadas para parches y actualizaciones.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-13",
+          "strength": "full"
+        },
+        {
+          "control": "PRU-01",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-10.1",
+      "ref": "Art. 10.1",
+      "group": "II",
+      "title": "Detección de actividades anómalas",
+      "summary": "Mecanismos para detectar con rapidez anomalías, problemas de rendimiento, incidentes y puntos únicos de fallo, probados periódicamente.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-08",
+          "strength": "full"
+        },
+        {
+          "control": "PRU-08",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-10.2",
+      "ref": "Art. 10.2",
+      "group": "II",
+      "title": "Niveles de control y umbrales de alerta",
+      "summary": "Múltiples niveles de control, criterios y umbrales de alerta y alertas automáticas al personal de respuesta.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-10",
+          "strength": "full"
+        },
+        {
+          "control": "OPE-08",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-10.3",
+      "ref": "Art. 10.3",
+      "group": "II",
+      "title": "Recursos para el seguimiento",
+      "summary": "Recursos suficientes para supervisar la actividad de usuarios, anomalías e incidentes.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-08",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-07",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.1",
+      "ref": "Art. 11.1",
+      "group": "II",
+      "title": "Política de continuidad TIC",
+      "summary": "Política global de continuidad de la actividad en materia de TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-02",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.2",
+      "ref": "Art. 11.2",
+      "group": "II",
+      "title": "Disposiciones de continuidad y respuesta",
+      "summary": "Planes y mecanismos para asegurar funciones críticas, responder, contener, estimar impacto y comunicar.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-04",
+          "strength": "full"
+        },
+        {
+          "control": "INC-03",
+          "strength": "partial"
+        },
+        {
+          "control": "INC-12",
+          "strength": "partial"
+        },
+        {
+          "control": "INC-09",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.3",
+      "ref": "Art. 11.3",
+      "group": "II",
+      "title": "Planes de respuesta y recuperación TIC",
+      "summary": "Planes de respuesta y recuperación sujetos a auditoría interna independiente (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-04",
+          "strength": "full"
+        },
+        {
+          "control": "CUM-06",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.4",
+      "ref": "Art. 11.4",
+      "group": "II",
+      "title": "Planes de continuidad probados",
+      "summary": "Planes de continuidad TIC establecidos y probados, incluidos los servicios externalizados.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-02",
+          "strength": "partial"
+        },
+        {
+          "control": "CON-05",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-04",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.5",
+      "ref": "Art. 11.5",
+      "group": "II",
+      "title": "Análisis de impacto en el negocio",
+      "summary": "BIA con criterios cuantitativos y cualitativos y redundancia de componentes críticos.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-03",
+          "strength": "full"
+        },
+        {
+          "control": "RED-05",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.6",
+      "ref": "Art. 11.6",
+      "group": "II",
+      "title": "Pruebas anuales de los planes",
+      "summary": "Probar al menos anualmente los planes, incluidos ciberataques y conmutación a capacidad redundante.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-05",
+          "strength": "full"
+        },
+        {
+          "control": "INC-09",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.7",
+      "ref": "Art. 11.7",
+      "group": "II",
+      "title": "Función de gestión de crisis",
+      "summary": "Función de gestión de crisis con procedimientos de comunicación interna y externa (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-08",
+          "strength": "full"
+        },
+        {
+          "control": "INC-09",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.8",
+      "ref": "Art. 11.8",
+      "group": "II",
+      "title": "Registros durante disrupciones",
+      "summary": "Registros accesibles de las actividades antes y durante las disrupciones.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-09",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-11.10",
+      "ref": "Art. 11.10",
+      "group": "II",
+      "title": "Costes y pérdidas por incidentes graves",
+      "summary": "Estimar los costes y pérdidas anuales agregados de incidentes graves e informar a la autoridad si lo solicita.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-12",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-12.1",
+      "ref": "Art. 12.1",
+      "group": "II",
+      "title": "Políticas de respaldo y recuperación",
+      "summary": "Políticas de respaldo con alcance y frecuencia, y procedimientos de restablecimiento y recuperación.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-06",
+          "strength": "full"
+        },
+        {
+          "control": "CON-04",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-12.2",
+      "ref": "Art. 12.2",
+      "group": "II",
+      "title": "Sistemas de respaldo y pruebas",
+      "summary": "Sistemas de respaldo activables sin comprometer la seguridad, con pruebas periódicas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "OPE-06",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-12.3",
+      "ref": "Art. 12.3",
+      "group": "II",
+      "title": "Restauración en sistemas separados",
+      "summary": "Restaurar en sistemas TIC separados física y lógicamente del sistema de origen.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-07",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-12.4",
+      "ref": "Art. 12.4",
+      "group": "II",
+      "title": "Capacidades TIC redundantes",
+      "summary": "Mantener capacidades TIC redundantes (no microempresas; las microempresas lo evalúan según riesgo).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RED-05",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-12.6",
+      "ref": "Art. 12.6",
+      "group": "II",
+      "title": "Objetivos de tiempo y punto de recuperación",
+      "summary": "Fijar RTO y RPO por función según su criticidad.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-06",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-12.7",
+      "ref": "Art. 12.7",
+      "group": "II",
+      "title": "Integridad de los datos al recuperar",
+      "summary": "Comprobaciones y conciliaciones múltiples para asegurar la integridad de los datos recuperados.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CON-07",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.1",
+      "ref": "Art. 13.1",
+      "group": "II",
+      "title": "Información sobre amenazas y vulnerabilidades",
+      "summary": "Capacidades y personal para recopilar y analizar información sobre amenazas, vulnerabilidades e incidentes.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-06",
+          "strength": "full"
+        },
+        {
+          "control": "PRU-01",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.2",
+      "ref": "Art. 13.2",
+      "group": "II",
+      "title": "Revisiones posteriores a incidentes",
+      "summary": "Revisar los incidentes graves, analizar causas y determinar mejoras.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-04",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.3",
+      "ref": "Art. 13.3",
+      "group": "II",
+      "title": "Incorporar lecciones aprendidas",
+      "summary": "Incorporar las enseñanzas de pruebas e incidentes al proceso de evaluación de riesgos y al marco.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-10",
+          "strength": "partial"
+        },
+        {
+          "control": "RIE-02",
+          "strength": "partial"
+        },
+        {
+          "control": "INC-04",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.4",
+      "ref": "Art. 13.4",
+      "group": "II",
+      "title": "Seguimiento de la estrategia y tendencias",
+      "summary": "Seguir la eficacia de la estrategia y la evolución de los incidentes y del riesgo TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-05",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-08",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.5",
+      "ref": "Art. 13.5",
+      "group": "II",
+      "title": "Informe anual al órgano de dirección",
+      "summary": "El personal directivo de TIC informa al menos anualmente al órgano de dirección.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "GOB-12",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.6",
+      "ref": "Art. 13.6",
+      "group": "II",
+      "title": "Concienciación y formación obligatorias",
+      "summary": "Programas obligatorios de concienciación en seguridad TIC y formación en resiliencia para todo el personal.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PER-03",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-13.7",
+      "ref": "Art. 13.7",
+      "group": "II",
+      "title": "Seguimiento de avances tecnológicos",
+      "summary": "Supervisar avances tecnológicos y nuevas formas de ciberataque (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "RIE-07",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-14.1",
+      "ref": "Art. 14.1",
+      "group": "II",
+      "title": "Planes de comunicación de crisis",
+      "summary": "Planes para la divulgación responsable de incidentes graves o vulnerabilidades a clientes, contrapartes y público.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-09",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-14.2",
+      "ref": "Art. 14.2",
+      "group": "II",
+      "title": "Políticas de comunicación",
+      "summary": "Políticas de comunicación para el personal interno y las partes interesadas externas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-09",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-17",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-14.3",
+      "ref": "Art. 14.3",
+      "group": "II",
+      "title": "Portavoz para incidentes",
+      "summary": "Al menos una persona encargada de la estrategia de comunicación y de actuar como portavoz.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-09",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.1",
+      "ref": "Art. 17.1",
+      "group": "III",
+      "title": "Proceso de gestión de incidentes",
+      "summary": "Definir, establecer y aplicar un proceso para detectar, gestionar y notificar incidentes TIC.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-01",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.2",
+      "ref": "Art. 17.2",
+      "group": "III",
+      "title": "Registro de incidentes y causas raíz",
+      "summary": "Registrar todos los incidentes y ciberamenazas importantes y abordar sus causas subyacentes.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-06",
+          "strength": "full"
+        },
+        {
+          "control": "INC-04",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.3.a",
+      "ref": "Art. 17.3.a",
+      "group": "III",
+      "title": "Indicadores de alerta temprana",
+      "summary": "Establecer indicadores de alerta temprana.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-10",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.3.b",
+      "ref": "Art. 17.3.b",
+      "group": "III",
+      "title": "Clasificación por prioridad y gravedad",
+      "summary": "Procedimientos para identificar, registrar y clasificar los incidentes por prioridad, gravedad y criticidad de servicios.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-02",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.3.c",
+      "ref": "Art. 17.3.c",
+      "group": "III",
+      "title": "Roles por tipo de incidente",
+      "summary": "Asignar funciones y responsabilidades para cada tipo y escenario de incidente.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-01",
+          "strength": "partial"
+        },
+        {
+          "control": "GOB-03",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.3.d",
+      "ref": "Art. 17.3.d",
+      "group": "III",
+      "title": "Comunicación y escalado de incidentes",
+      "summary": "Planes de comunicación con personal, terceros, medios y clientes, y escalado interno, incluidas reclamaciones.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-09",
+          "strength": "partial"
+        },
+        {
+          "control": "INC-08",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.3.e",
+      "ref": "Art. 17.3.e",
+      "group": "III",
+      "title": "Información a la alta dirección",
+      "summary": "Los incidentes graves llegan a la alta dirección y al órgano de dirección con su impacto y medidas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-11",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-12",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-17.3.f",
+      "ref": "Art. 17.3.f",
+      "group": "III",
+      "title": "Procedimientos de respuesta",
+      "summary": "Procedimientos de respuesta para mitigar el impacto y restablecer los servicios oportunamente.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-03",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-18.1",
+      "ref": "Art. 18.1",
+      "group": "III",
+      "title": "Criterios de clasificación de incidentes",
+      "summary": "Clasificar incidentes según clientes afectados, duración, extensión geográfica, pérdida de datos, criticidad e impacto económico.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-02",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-18.2",
+      "ref": "Art. 18.2",
+      "group": "III",
+      "title": "Clasificación de ciberamenazas importantes",
+      "summary": "Clasificar las ciberamenazas como importantes según la criticidad de los servicios en riesgo.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-02",
+          "strength": "partial"
+        },
+        {
+          "control": "RIE-06",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-19.1",
+      "ref": "Art. 19.1",
+      "group": "III",
+      "title": "Notificación de incidentes graves",
+      "summary": "Notificar los incidentes graves a la autoridad competente.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-07",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-13",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-19.2",
+      "ref": "Art. 19.2",
+      "group": "III",
+      "title": "Notificación voluntaria de ciberamenazas",
+      "summary": "Notificar voluntariamente ciberamenazas importantes relevantes para el sistema financiero.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "INC-07",
+          "strength": "partial"
+        },
+        {
+          "control": "CUM-11",
+          "strength": "related"
+        }
+      ],
+      "note": "Disposición voluntaria («podrán»): excluible si la entidad no la adopta."
+    },
+    {
+      "id": "DORA-19.3",
+      "ref": "Art. 19.3",
+      "group": "III",
+      "title": "Información a clientes",
+      "summary": "Informar sin demora a los clientes afectados por incidentes graves y de las medidas adoptadas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-08",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-19.4",
+      "ref": "Art. 19.4",
+      "group": "III",
+      "title": "Notificación inicial, informe intermedio y final",
+      "summary": "Presentar notificación inicial, informes intermedios y final en los plazos fijados.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "INC-07",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-24.1",
+      "ref": "Art. 24.1",
+      "group": "IV",
+      "title": "Programa de pruebas de resiliencia",
+      "summary": "Programa de pruebas sólido y completo dentro del marco de riesgo TIC (no microempresas).",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-02",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-24.2",
+      "ref": "Art. 24.2",
+      "group": "IV",
+      "title": "Contenido del programa de pruebas",
+      "summary": "Evaluaciones, pruebas, métodos y herramientas conforme a los arts. 25 y 26.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-02",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-24.3",
+      "ref": "Art. 24.3",
+      "group": "IV",
+      "title": "Enfoque basado en el riesgo",
+      "summary": "Programa de pruebas basado en el riesgo y en la criticidad de activos y servicios.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-02",
+          "strength": "partial"
+        },
+        {
+          "control": "RIE-01",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-24.4",
+      "ref": "Art. 24.4",
+      "group": "IV",
+      "title": "Independencia de los probadores",
+      "summary": "Pruebas realizadas por partes independientes, internas o externas, sin conflictos de interés.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-03",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-24.5",
+      "ref": "Art. 24.5",
+      "group": "IV",
+      "title": "Corrección de los problemas detectados",
+      "summary": "Priorizar, clasificar y corregir los problemas detectados, con validación interna.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-04",
+          "strength": "full"
+        },
+        {
+          "control": "CUM-09",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-24.6",
+      "ref": "Art. 24.6",
+      "group": "IV",
+      "title": "Pruebas anuales de sistemas críticos",
+      "summary": "Probar al menos anualmente los sistemas y aplicaciones que soportan funciones críticas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-05",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-25.1",
+      "ref": "Art. 25.1",
+      "group": "IV",
+      "title": "Tipos de pruebas",
+      "summary": "Escaneo de vulnerabilidades, análisis de código, seguridad de red, rendimiento, extremo a extremo y pruebas de penetración.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRU-01",
+          "strength": "partial"
+        },
+        {
+          "control": "PRU-05",
+          "strength": "partial"
+        },
+        {
+          "control": "DES-05",
+          "strength": "partial"
+        },
+        {
+          "control": "OPE-03",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-26.1",
+      "ref": "Art. 26.1",
+      "group": "IV",
+      "title": "Pruebas TLPT cada tres años",
+      "summary": "Realizar pruebas de penetración basadas en amenazas al menos cada tres años.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-06",
+          "strength": "full"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-26.2",
+      "ref": "Art. 26.2",
+      "group": "IV",
+      "title": "Alcance de las TLPT",
+      "summary": "Cubrir funciones críticas sobre sistemas de producción, incluidas las externalizadas.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-06",
+          "strength": "partial"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-26.3",
+      "ref": "Art. 26.3",
+      "group": "IV",
+      "title": "Participación de proveedores en TLPT",
+      "summary": "Asegurar la participación de los proveedores TIC incluidos en el alcance.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-06",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-02",
+          "strength": "related"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-26.5",
+      "ref": "Art. 26.5",
+      "group": "IV",
+      "title": "Gestión del riesgo durante las TLPT",
+      "summary": "Controles para mitigar el riesgo sobre datos, activos y operaciones durante la prueba.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-06",
+          "strength": "partial"
+        },
+        {
+          "control": "CUM-07",
+          "strength": "partial"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-26.6",
+      "ref": "Art. 26.6",
+      "group": "IV",
+      "title": "Resultados de las TLPT a la autoridad",
+      "summary": "Entregar resumen de hallazgos, planes correctores y documentación de la prueba.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-06",
+          "strength": "partial"
+        },
+        {
+          "control": "CUM-12",
+          "strength": "partial"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-26.8",
+      "ref": "Art. 26.8",
+      "group": "IV",
+      "title": "Rotación de probadores",
+      "summary": "Contratar probadores externos al menos cada tres pruebas si se usan internos.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-07",
+          "strength": "partial"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-27.1",
+      "ref": "Art. 27.1",
+      "group": "IV",
+      "title": "Requisitos de los probadores",
+      "summary": "Probadores idóneos, con capacidades acreditadas, código ético, garantías y seguros.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-07",
+          "strength": "full"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-27.3",
+      "ref": "Art. 27.3",
+      "group": "IV",
+      "title": "Contratos con probadores externos",
+      "summary": "Contratos que aseguren una gestión adecuada de los resultados de las pruebas.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "PRU-07",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-02",
+          "strength": "partial"
+        }
+      ],
+      "note": "Solo para entidades designadas por la autoridad competente para realizar TLPT (art. 26.8)."
+    },
+    {
+      "id": "DORA-28.1",
+      "ref": "Art. 28.1",
+      "group": "V",
+      "title": "Riesgo de terceros dentro del marco",
+      "summary": "Gestionar el riesgo TIC de terceros como parte del marco, con plena responsabilidad y proporcionalidad.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-03",
+          "strength": "full"
+        },
+        {
+          "control": "PRO-01",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.2",
+      "ref": "Art. 28.2",
+      "group": "V",
+      "title": "Estrategia de riesgo TIC de terceros",
+      "summary": "Estrategia y política sobre servicios TIC que soportan funciones críticas, revisada por la dirección.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-01",
+          "strength": "full"
+        },
+        {
+          "control": "GOB-08",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.3",
+      "ref": "Art. 28.3",
+      "group": "V",
+      "title": "Registro de información",
+      "summary": "Mantener un registro de todos los acuerdos contractuales de servicios TIC con terceros.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-06",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.3.inf",
+      "ref": "Art. 28.3.inf",
+      "group": "V",
+      "title": "Información a la autoridad sobre acuerdos",
+      "summary": "Informar anualmente a la autoridad sobre nuevos acuerdos y con antelación sobre los que afecten a funciones críticas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "CUM-12",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-06",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.4",
+      "ref": "Art. 28.4",
+      "group": "V",
+      "title": "Evaluación previa a la contratación",
+      "summary": "Antes de contratar, evaluar criticidad, riesgos, concentración, diligencia debida y conflictos de interés.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-07",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.5",
+      "ref": "Art. 28.5",
+      "group": "V",
+      "title": "Proveedores con normas de seguridad adecuadas",
+      "summary": "Contratar solo con proveedores que cumplan normas de seguridad de la información adecuadas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-07",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-03",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.6",
+      "ref": "Art. 28.6",
+      "group": "V",
+      "title": "Frecuencia de auditorías e inspecciones",
+      "summary": "Determinar la frecuencia de auditorías e inspecciones de proveedores según el riesgo.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-04",
+          "strength": "full"
+        },
+        {
+          "control": "PRO-02",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.7",
+      "ref": "Art. 28.7",
+      "group": "V",
+      "title": "Terminación de los acuerdos",
+      "summary": "Poder terminar los acuerdos ante incumplimientos, debilidades o impedimentos de supervisión.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-10",
+          "strength": "full"
+        },
+        {
+          "control": "PRO-02",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-28.8",
+      "ref": "Art. 28.8",
+      "group": "V",
+      "title": "Estrategias de salida",
+      "summary": "Estrategias de salida y planes de transición para servicios que soportan funciones críticas.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-09",
+          "strength": "full"
+        },
+        {
+          "control": "CON-02",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-29.1",
+      "ref": "Art. 29.1",
+      "group": "V",
+      "title": "Riesgo de concentración",
+      "summary": "Evaluar la concentración y la sustituibilidad de proveedores antes de contratar.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-08",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-29.2",
+      "ref": "Art. 29.2",
+      "group": "V",
+      "title": "Subcontratación y terceros países",
+      "summary": "Evaluar los riesgos de la subcontratación y de proveedores establecidos en terceros países.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-08",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-07",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-30.1",
+      "ref": "Art. 30.1",
+      "group": "V",
+      "title": "Contratos por escrito",
+      "summary": "Derechos y obligaciones asignados claramente y documentados en un contrato escrito.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-02",
+          "strength": "full"
+        }
+      ]
+    },
+    {
+      "id": "DORA-30.2",
+      "ref": "Art. 30.2",
+      "group": "V",
+      "title": "Contenido mínimo de los contratos",
+      "summary": "Descripción de servicios, ubicaciones, protección de datos, niveles de servicio, asistencia en incidentes, cooperación con autoridades y terminación.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-02",
+          "strength": "full"
+        },
+        {
+          "control": "PRO-05",
+          "strength": "related"
+        }
+      ]
+    },
+    {
+      "id": "DORA-30.3",
+      "ref": "Art. 30.3",
+      "group": "V",
+      "title": "Contratos para funciones críticas",
+      "summary": "Niveles de servicio completos, preavisos, planes de contingencia, participación en TLPT, auditoría y estrategia de salida.",
+      "excludable": false,
+      "mappings": [
+        {
+          "control": "PRO-02",
+          "strength": "full"
+        },
+        {
+          "control": "PRO-09",
+          "strength": "partial"
+        },
+        {
+          "control": "PRO-04",
+          "strength": "partial"
+        }
+      ]
+    },
+    {
+      "id": "DORA-45.1",
+      "ref": "Art. 45.1",
+      "group": "VI",
+      "title": "Acuerdos de intercambio de información",
+      "summary": "Intercambiar información e inteligencia sobre ciberamenazas en comunidades de confianza.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "CUM-11",
+          "strength": "full"
+        },
+        {
+          "control": "RIE-06",
+          "strength": "related"
+        }
+      ],
+      "note": "Disposición voluntaria («podrán»): excluible si la entidad no la adopta."
+    },
+    {
+      "id": "DORA-45.3",
+      "ref": "Art. 45.3",
+      "group": "VI",
+      "title": "Notificación de la participación",
+      "summary": "Notificar a la autoridad la participación en acuerdos de intercambio de información.",
+      "excludable": true,
+      "mappings": [
+        {
+          "control": "CUM-11",
+          "strength": "partial"
+        }
+      ],
+      "note": "Disposición voluntaria («podrán»): excluible si la entidad no la adopta."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="@csp">
+<meta name="referrer" content="no-referrer">
+<title>Babel GRC · Cumplimiento multinorma</title>
+<meta name="description" content="Relaciona los requisitos de varios marcos normativos con un catálogo común de controles y calcula el grado de cumplimiento de cada uno. Funciona en el navegador, sin servidor.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B4BDB'/%3E%3Cpath d='M9 24h14M11 24V12m5 12V9m5 15V12M8 12h16' stroke='white' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<style>/*@css*/</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="shell">
+  <aside class="side" id="side" aria-label="Navegación principal">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M9 24h14M11 24V12m5 12V9m5 15V12M8 12h16"/></svg>
+      <div><strong>Babel GRC</strong><span>Cumplimiento multinorma</span></div>
+    </div>
+    <div class="proj" id="proj-switch"></div>
+    <nav id="nav"></nav>
+    <div class="side-foot">
+      <button class="btn ghost sm" data-act="theme" type="button" aria-label="Cambiar entre tema claro y oscuro">◐ Tema</button>
+      <span class="ver" id="ver"></span>
+    </div>
+  </aside>
+  <main id="main" tabindex="-1"></main>
+</div>
+<div id="drawer" class="drawer" hidden></div>
+<div id="modal" class="modal" hidden></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="application/json" id="babel-data">@data</script>
+<script>/*@js*/</script>
+</body>
+</html>

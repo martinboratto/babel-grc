@@ -1,0 +1,41 @@
+{
+  "name": "babel-grc",
+  "version": "1.0.0",
+  "description": "Herramienta de cumplimiento multinorma: relaciona los requisitos de varios marcos normativos con un catálogo común de controles y calcula el grado de cumplimiento de cada uno. Funciona en el navegador, sin servidor.",
+  "author": "Martín Boratto",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinboratto/babel-grc.git"
+  },
+  "homepage": "https://martinboratto.github.io/babel-grc/",
+  "keywords": [
+    "grc",
+    "compliance",
+    "iso27001",
+    "dora",
+    "cumplimiento",
+    "soa"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "serve": "node scripts/serve.mjs",
+    "test": "node --test tests/engine.test.mjs tests/frameworks.test.mjs tests/build.test.mjs",
+    "test:e2e": "node scripts/build.mjs && node --test tests/e2e.test.mjs",
+    "test:all": "npm test && npm run test:e2e",
+    "xlsx-a-marco": "node scripts/xlsx-a-marco.mjs",
+    "plantilla": "node scripts/plantilla.mjs"
+  },
+  "devDependencies": {
+    "exceljs": "^4.4.0",
+    "playwright": "^1.63.0"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}

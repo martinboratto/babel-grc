@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://martinboratto.github.io/babel-grc/schema/framework.schema.json",
+  "title": "Babel GRC · marco normativo",
+  "description": "Un marco relaciona sus requisitos con controles del catálogo común (catalog/controls.json).",
+  "type": "object",
+  "required": ["id", "name", "requirements"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{1,48}$", "description": "Identificador único; debe coincidir con el nombre del archivo." },
+    "order": { "type": "number", "description": "Orden de aparición en la aplicación (menor primero)." },
+    "name": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "shortName": { "type": "string", "maxLength": 40 },
+    "version": { "type": "string", "maxLength": 120 },
+    "publisher": { "type": "string", "maxLength": 120 },
+    "jurisdiction": { "type": "string", "maxLength": 120 },
+    "type": { "type": "string", "maxLength": 40, "examples": ["norma", "regulacion", "marco", "guia"] },
+    "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "url": { "type": "string", "pattern": "^https://" },
+    "description": { "type": "string", "maxLength": 2000 },
+    "notice": { "type": "string", "maxLength": 2000 },
+    "frameworkVersion": { "type": "string", "maxLength": 20 },
+    "groups": {
+      "type": "array",
+      "items": { "type": "object", "required": ["id", "title"], "properties": { "id": { "type": "string" }, "title": { "type": "string", "maxLength": 200 } } }
+    },
+    "requirements": {
+      "type": "array", "minItems": 1, "maxItems": 5000,
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "ref": { "type": "string", "maxLength": 80 },
+          "group": { "type": "string" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "summary": { "type": "string", "maxLength": 2000 },
+          "excludable": { "type": "boolean", "default": true },
+          "note": { "type": "string", "maxLength": 1000 },
+          "mappings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["control", "strength"],
+              "properties": {
+                "control": { "type": "string", "pattern": "^[A-Z]{2,5}-[A-Z0-9]{1,6}$" },
+                "strength": { "enum": ["full", "partial", "related"] }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    "controls": {
+      "type": "array",
+      "description": "Controles propios del marco que no existen en el catálogo común.",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Z]{2,5}-[A-Z0-9]{1,6}$" },
+          "domain": { "type": "string", "pattern": "^[A-Z]{2,5}$" },
+          "title": { "type": "string", "maxLength": 200 },
+          "description": { "type": "string", "maxLength": 1000 }
+        }
+      }
+    }
+  }
+}

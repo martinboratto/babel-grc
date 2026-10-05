@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://martinboratto.github.io/babel-grc/schema/catalog.schema.json",
+  "title": "Babel GRC · catálogo común de controles",
+  "type": "object",
+  "required": ["domains", "controls"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string" },
+    "domains": {
+      "type": "array",
+      "items": { "type": "object", "required": ["id", "title"], "properties": { "id": { "type": "string", "pattern": "^[A-Z]{2,5}$" }, "title": { "type": "string" }, "description": { "type": "string" } } }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "domain", "title"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Z]{2,5}-[A-Z0-9]{1,6}$" },
+          "domain": { "type": "string", "pattern": "^[A-Z]{2,5}$" },
+          "title": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  }
+}

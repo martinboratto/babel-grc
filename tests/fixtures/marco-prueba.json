@@ -1,0 +1,18 @@
+{
+  "id": "marco-prueba",
+  "name": "Marco de prueba (ficticio)",
+  "shortName": "Prueba",
+  "version": "1.0",
+  "publisher": "Babel GRC",
+  "jurisdiction": "Pruebas automatizadas",
+  "type": "marco",
+  "color": "#C2410C",
+  "description": "Marco ficticio para las pruebas E2E: un requisito con control propio y uno sin mapear.",
+  "groups": [{ "id": "G1", "title": "Gobierno" }, { "id": "G2", "title": "Operación" }],
+  "controls": [{ "id": "TST-01", "domain": "TST", "title": "Control propio del marco de prueba", "description": "Solo para pruebas." }],
+  "requirements": [
+    { "id": "P-1", "ref": "1", "group": "G1", "title": "Política aprobada", "summary": "Equivale a ISO A.5.1.", "excludable": false, "mappings": [{ "control": "GOB-01", "strength": "full" }] },
+    { "id": "P-2", "ref": "2", "group": "G2", "title": "Respaldo y control propio", "mappings": [{ "control": "OPE-06", "strength": "full" }, { "control": "TST-01", "strength": "partial" }] },
+    { "id": "P-3", "ref": "3", "group": "G2", "title": "Requisito aún sin mapear" }
+  ]
+}

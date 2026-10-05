@@ -1,0 +1,834 @@
+{
+ "name": "Caso de ejemplo · Pagos Austral (entidad ficticia)",
+ "scope": [
+  "iso27001-2022",
+  "dora"
+ ],
+ "created": "2026-10-05",
+ "controls": {
+  "GOB-01": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-09-02"
+  },
+  "GOB-02": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-11-14"
+  },
+  "GOB-03": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2025-07-27"
+  },
+  "GOB-04": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2025-04-05"
+  },
+  "GOB-05": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-07-11"
+  },
+  "GOB-06": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-02-27"
+  },
+  "GOB-07": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2025-12-09"
+  },
+  "GOB-08": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-12-16"
+  },
+  "GOB-09": {
+   "status": "partial",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Pendiente de formalizar"
+  },
+  "GOB-10": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "reviewed": "2025-11-19"
+  },
+  "GOB-11": {
+   "status": "partial",
+   "owner": "Dirección de Riesgos"
+  },
+  "GOB-12": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2026-09-24"
+  },
+  "GOB-13": {
+   "status": "partial",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Implantado solo en producción"
+  },
+  "GOB-14": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-11-11"
+  },
+  "GOB-15": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2025-02-07"
+  },
+  "GOB-16": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "reviewed": "2025-05-22"
+  },
+  "GOB-17": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2025-02-26"
+  },
+  "RIE-01": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2026-05-01"
+  },
+  "RIE-02": {
+   "status": "partial",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Implantado solo en producción"
+  },
+  "RIE-03": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-07-14"
+  },
+  "RIE-04": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2026-05-25"
+  },
+  "RIE-05": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-05-06"
+  },
+  "RIE-06": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-08-14"
+  },
+  "RIE-07": {
+   "status": "implemented",
+   "owner": "Dirección de Riesgos",
+   "reviewed": "2025-04-11"
+  },
+  "RIE-08": {
+   "status": "pending"
+  },
+  "ACT-01": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "reviewed": "2026-04-05"
+  },
+  "ACT-02": {
+   "status": "partial",
+   "owner": "Seguridad de la Información",
+   "evidence": "Pendiente de formalizar",
+   "due": "2026-12-20",
+   "plan": "doing"
+  },
+  "ACT-03": {
+   "status": "pending",
+   "owner": "Seguridad de la Información",
+   "due": "2027-04-11",
+   "plan": "doing"
+  },
+  "ACT-04": {
+   "status": "partial",
+   "owner": "Seguridad de la Información",
+   "evidence": "Borrador en revisión",
+   "due": "2027-03-10",
+   "plan": "todo"
+  },
+  "ACT-05": {
+   "status": "pending"
+  },
+  "ACT-06": {
+   "status": "partial",
+   "owner": "Seguridad de la Información",
+   "evidence": "Borrador en revisión",
+   "due": "2027-02-20",
+   "plan": "todo"
+  },
+  "ACT-07": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-12-09"
+  },
+  "ACT-08": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2026-09-20"
+  },
+  "ACT-09": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2025-02-06"
+  },
+  "ACT-10": {
+   "status": "na"
+  },
+  "ACT-11": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2026-09-20"
+  },
+  "ACT-12": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2026-08-20"
+  },
+  "ACT-13": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-02-24"
+  },
+  "ACT-14": {
+   "status": "implemented",
+   "owner": "Seguridad de la Información",
+   "reviewed": "2026-06-15"
+  },
+  "PER-01": {
+   "status": "implemented",
+   "owner": "Recursos Humanos",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-10-21"
+  },
+  "PER-02": {
+   "status": "implemented",
+   "owner": "Recursos Humanos",
+   "reviewed": "2026-02-11"
+  },
+  "PER-03": {
+   "status": "implemented",
+   "owner": "Recursos Humanos",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-06-16"
+  },
+  "PER-04": {
+   "status": "pending"
+  },
+  "PER-05": {
+   "status": "partial",
+   "owner": "Recursos Humanos"
+  },
+  "PER-06": {
+   "status": "pending",
+   "owner": "Recursos Humanos",
+   "due": "2027-06-07",
+   "plan": "doing"
+  },
+  "PER-07": {
+   "status": "pending"
+  },
+  "PER-08": {
+   "status": "pending"
+  },
+  "ACC-01": {
+   "status": "implemented",
+   "owner": "Identidades (IAM)",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-05-16"
+  },
+  "ACC-02": {
+   "status": "implemented",
+   "owner": "Identidades (IAM)",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-10-06"
+  },
+  "ACC-03": {
+   "status": "partial",
+   "owner": "Identidades (IAM)",
+   "evidence": "Implantado solo en producción",
+   "due": "2026-12-02",
+   "plan": "doing"
+  },
+  "ACC-04": {
+   "status": "implemented",
+   "owner": "Identidades (IAM)",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2025-12-11"
+  },
+  "ACC-05": {
+   "status": "pending"
+  },
+  "ACC-06": {
+   "status": "implemented",
+   "owner": "Identidades (IAM)",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2026-02-05"
+  },
+  "ACC-07": {
+   "status": "implemented",
+   "owner": "Identidades (IAM)",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-09-19"
+  },
+  "ACC-08": {
+   "status": "partial",
+   "owner": "Identidades (IAM)",
+   "due": "2026-09-19",
+   "plan": "todo"
+  },
+  "ACC-09": {
+   "status": "implemented",
+   "owner": "Identidades (IAM)",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2025-05-04"
+  },
+  "FIS-01": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2025-04-22"
+  },
+  "FIS-02": {
+   "status": "pending",
+   "owner": "Facilities",
+   "due": "2027-02-19",
+   "plan": "doing"
+  },
+  "FIS-03": {
+   "status": "partial",
+   "owner": "Facilities",
+   "evidence": "Pendiente de formalizar"
+  },
+  "FIS-04": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2025-06-23"
+  },
+  "FIS-05": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2026-03-03"
+  },
+  "FIS-06": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-04-03"
+  },
+  "FIS-07": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2025-11-10"
+  },
+  "FIS-08": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-06-21"
+  },
+  "FIS-09": {
+   "status": "partial",
+   "owner": "Facilities",
+   "evidence": "Borrador en revisión"
+  },
+  "FIS-10": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2026-05-21"
+  },
+  "FIS-11": {
+   "status": "na"
+  },
+  "FIS-12": {
+   "status": "implemented",
+   "owner": "Facilities",
+   "reviewed": "2026-06-23"
+  },
+  "OPE-01": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-04-24"
+  },
+  "OPE-02": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-12-03"
+  },
+  "OPE-03": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2025-12-25"
+  },
+  "OPE-04": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2026-06-04"
+  },
+  "OPE-05": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2026-09-23"
+  },
+  "OPE-06": {
+   "status": "partial",
+   "owner": "Operaciones TI",
+   "evidence": "Pendiente de formalizar"
+  },
+  "OPE-07": {
+   "status": "pending"
+  },
+  "OPE-08": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-04-01"
+  },
+  "OPE-09": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "reviewed": "2026-04-20"
+  },
+  "OPE-10": {
+   "status": "partial",
+   "owner": "Operaciones TI",
+   "evidence": "Pendiente de formalizar"
+  },
+  "OPE-11": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-06-05"
+  },
+  "OPE-12": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "reviewed": "2026-07-20"
+  },
+  "OPE-13": {
+   "status": "implemented",
+   "owner": "Operaciones TI",
+   "reviewed": "2025-10-07"
+  },
+  "RED-01": {
+   "status": "pending"
+  },
+  "RED-02": {
+   "status": "implemented",
+   "owner": "Redes",
+   "reviewed": "2025-12-03"
+  },
+  "RED-03": {
+   "status": "implemented",
+   "owner": "Redes",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-01-02"
+  },
+  "RED-04": {
+   "status": "partial",
+   "owner": "Redes",
+   "due": "2027-03-26",
+   "plan": "todo"
+  },
+  "RED-05": {
+   "status": "implemented",
+   "owner": "Redes",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-12-08"
+  },
+  "DES-01": {
+   "status": "partial",
+   "owner": "Desarrollo",
+   "due": "2026-11-05",
+   "plan": "todo"
+  },
+  "DES-02": {
+   "status": "partial",
+   "owner": "Desarrollo",
+   "evidence": "Borrador en revisión"
+  },
+  "DES-03": {
+   "status": "partial",
+   "owner": "Desarrollo",
+   "evidence": "Implantado solo en producción"
+  },
+  "DES-04": {
+   "status": "implemented",
+   "owner": "Desarrollo",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2026-05-05"
+  },
+  "DES-05": {
+   "status": "pending",
+   "owner": "Desarrollo",
+   "due": "2026-10-28",
+   "plan": "doing"
+  },
+  "DES-06": {
+   "status": "implemented",
+   "owner": "Desarrollo",
+   "reviewed": "2025-07-09"
+  },
+  "DES-07": {
+   "status": "implemented",
+   "owner": "Desarrollo",
+   "reviewed": "2026-06-09"
+  },
+  "DES-08": {
+   "status": "partial",
+   "owner": "Desarrollo",
+   "evidence": "Pendiente de formalizar"
+  },
+  "DES-09": {
+   "status": "implemented",
+   "owner": "Desarrollo",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-03-25"
+  },
+  "PRO-01": {
+   "status": "pending"
+  },
+  "PRO-02": {
+   "status": "implemented",
+   "owner": "Compras y Proveedores",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-09-06"
+  },
+  "PRO-03": {
+   "status": "implemented",
+   "owner": "Compras y Proveedores",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2025-06-14"
+  },
+  "PRO-04": {
+   "status": "partial",
+   "owner": "Compras y Proveedores",
+   "evidence": "Borrador en revisión",
+   "due": "2026-08-04",
+   "plan": "todo"
+  },
+  "PRO-05": {
+   "status": "pending",
+   "owner": "Compras y Proveedores",
+   "due": "2026-10-25",
+   "plan": "todo"
+  },
+  "PRO-06": {
+   "status": "pending",
+   "owner": "Compras y Proveedores",
+   "due": "2027-04-04",
+   "plan": "doing"
+  },
+  "PRO-07": {
+   "status": "pending"
+  },
+  "PRO-08": {
+   "status": "pending",
+   "owner": "Compras y Proveedores",
+   "due": "2027-05-01",
+   "plan": "todo"
+  },
+  "PRO-09": {
+   "status": "implemented",
+   "owner": "Compras y Proveedores",
+   "reviewed": "2025-10-28"
+  },
+  "PRO-10": {
+   "status": "pending",
+   "owner": "Compras y Proveedores",
+   "due": "2026-12-26",
+   "plan": "doing"
+  },
+  "PRO-11": {
+   "status": "implemented",
+   "owner": "Compras y Proveedores",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2026-06-18"
+  },
+  "INC-01": {
+   "status": "pending",
+   "owner": "SOC",
+   "due": "2026-09-17",
+   "plan": "doing"
+  },
+  "INC-02": {
+   "status": "implemented",
+   "owner": "SOC",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2026-01-03"
+  },
+  "INC-03": {
+   "status": "pending",
+   "owner": "SOC",
+   "due": "2026-12-10",
+   "plan": "todo"
+  },
+  "INC-04": {
+   "status": "partial",
+   "owner": "SOC",
+   "due": "2027-01-08",
+   "plan": "doing"
+  },
+  "INC-05": {
+   "status": "implemented",
+   "owner": "SOC",
+   "reviewed": "2026-02-05"
+  },
+  "INC-06": {
+   "status": "implemented",
+   "owner": "SOC",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-06-03"
+  },
+  "INC-07": {
+   "status": "implemented",
+   "owner": "SOC",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-03-07"
+  },
+  "INC-08": {
+   "status": "implemented",
+   "owner": "SOC",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2026-06-03"
+  },
+  "INC-09": {
+   "status": "implemented",
+   "owner": "SOC",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2026-02-15"
+  },
+  "INC-10": {
+   "status": "partial",
+   "owner": "SOC",
+   "evidence": "Implantado solo en producción",
+   "due": "2027-02-22",
+   "plan": "todo"
+  },
+  "INC-11": {
+   "status": "partial",
+   "owner": "SOC",
+   "evidence": "Pendiente de formalizar"
+  },
+  "INC-12": {
+   "status": "implemented",
+   "owner": "SOC",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2026-05-02"
+  },
+  "CON-01": {
+   "status": "partial",
+   "owner": "Continuidad",
+   "evidence": "Borrador en revisión",
+   "due": "2027-04-04",
+   "plan": "doing"
+  },
+  "CON-02": {
+   "status": "pending"
+  },
+  "CON-03": {
+   "status": "pending",
+   "owner": "Continuidad",
+   "due": "2027-02-17",
+   "plan": "doing"
+  },
+  "CON-04": {
+   "status": "pending"
+  },
+  "CON-05": {
+   "status": "implemented",
+   "owner": "Continuidad",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2025-02-16"
+  },
+  "CON-06": {
+   "status": "pending"
+  },
+  "CON-07": {
+   "status": "pending",
+   "owner": "Continuidad",
+   "due": "2026-10-12",
+   "plan": "doing"
+  },
+  "CON-08": {
+   "status": "implemented",
+   "owner": "Continuidad",
+   "reviewed": "2026-05-24"
+  },
+  "CON-09": {
+   "status": "implemented",
+   "owner": "Continuidad",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-11-02"
+  },
+  "PRU-01": {
+   "status": "implemented",
+   "owner": "Seguridad Ofensiva",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2025-03-12"
+  },
+  "PRU-02": {
+   "status": "implemented",
+   "owner": "Seguridad Ofensiva",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2026-05-22"
+  },
+  "PRU-03": {
+   "status": "pending"
+  },
+  "PRU-04": {
+   "status": "implemented",
+   "owner": "Seguridad Ofensiva",
+   "evidence": "Registro en la herramienta GRC",
+   "reviewed": "2025-03-15"
+  },
+  "PRU-05": {
+   "status": "implemented",
+   "owner": "Seguridad Ofensiva",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2026-05-03"
+  },
+  "PRU-06": {
+   "status": "implemented",
+   "owner": "Seguridad Ofensiva",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2026-04-19"
+  },
+  "PRU-07": {
+   "status": "pending"
+  },
+  "PRU-08": {
+   "status": "implemented",
+   "owner": "Seguridad Ofensiva",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-04-26"
+  },
+  "CUM-01": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2026-01-11"
+  },
+  "CUM-02": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2026-08-18"
+  },
+  "CUM-03": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Reporte de auditoría interna",
+   "reviewed": "2026-03-10"
+  },
+  "CUM-04": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Política aprobada en acta de directorio",
+   "reviewed": "2025-09-07"
+  },
+  "CUM-05": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Evidencia de la última prueba",
+   "reviewed": "2025-08-05"
+  },
+  "CUM-06": {
+   "status": "partial",
+   "owner": "Cumplimiento",
+   "evidence": "Borrador en revisión"
+  },
+  "CUM-07": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2025-11-08"
+  },
+  "CUM-08": {
+   "status": "partial",
+   "owner": "Cumplimiento",
+   "due": "2026-10-05",
+   "plan": "todo"
+  },
+  "CUM-09": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2026-08-05"
+  },
+  "CUM-10": {
+   "status": "partial",
+   "owner": "Cumplimiento",
+   "evidence": "Implantado solo en producción",
+   "due": "2027-04-18",
+   "plan": "doing"
+  },
+  "CUM-11": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Procedimiento publicado en la intranet",
+   "reviewed": "2026-06-01"
+  },
+  "CUM-12": {
+   "status": "implemented",
+   "owner": "Cumplimiento",
+   "evidence": "Informe trimestral de indicadores",
+   "reviewed": "2025-03-06"
+  }
+ },
+ "exclusions": {
+  "dora": {
+   "DORA-26.1": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-26.2": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-26.3": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-26.5": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-26.6": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-26.8": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-27.1": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-27.3": "La autoridad competente no designó a la entidad para realizar pruebas TLPT (art. 26.8).",
+   "DORA-6.9": "La entidad no adopta una estrategia multiproveedor formal."
+  },
+  "iso27001-2022": {
+   "ISO27001-A8.30": "No hay desarrollo externalizado: todo el software se desarrolla internamente.",
+   "ISO27001-A7.12": ""
+  }
+ }
+}

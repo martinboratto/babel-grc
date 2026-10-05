@@ -1,0 +1,960 @@
+{
+  "$schema": "../schema/catalog.schema.json",
+  "version": "1.0.0",
+  "domains": [
+    {
+      "id": "GOB",
+      "title": "Gobierno y estrategia",
+      "description": "Liderazgo, políticas, roles, objetivos y estrategia de seguridad y resiliencia."
+    },
+    {
+      "id": "RIE",
+      "title": "Gestión de riesgos",
+      "description": "Metodología, evaluación, tratamiento, tolerancia e inteligencia de amenazas."
+    },
+    {
+      "id": "ACT",
+      "title": "Activos e información",
+      "description": "Inventario, clasificación, tratamiento y protección de la información."
+    },
+    {
+      "id": "PER",
+      "title": "Personas",
+      "description": "Seguridad antes, durante y después de la relación laboral; concienciación."
+    },
+    {
+      "id": "ACC",
+      "title": "Identidad y accesos",
+      "description": "Identidades, autenticación, privilegios y derechos de acceso."
+    },
+    {
+      "id": "FIS",
+      "title": "Seguridad física",
+      "description": "Perímetros, áreas seguras, equipos y suministros."
+    },
+    {
+      "id": "OPE",
+      "title": "Operaciones",
+      "description": "Operación segura: configuración, malware, registros, monitorización, criptografía y respaldo."
+    },
+    {
+      "id": "RED",
+      "title": "Redes y comunicaciones",
+      "description": "Seguridad, segmentación y redundancia de redes e instalaciones."
+    },
+    {
+      "id": "DES",
+      "title": "Desarrollo y cambios",
+      "description": "Ciclo de vida seguro, arquitectura, entornos y gestión de cambios."
+    },
+    {
+      "id": "PRO",
+      "title": "Proveedores y terceros",
+      "description": "Riesgo de terceros TIC: estrategia, contratos, registro, concentración y salida."
+    },
+    {
+      "id": "INC",
+      "title": "Incidentes",
+      "description": "Preparación, clasificación, respuesta, notificación y comunicación de incidentes."
+    },
+    {
+      "id": "CON",
+      "title": "Continuidad y resiliencia",
+      "description": "Continuidad TIC, BIA, planes de recuperación, crisis y pruebas de continuidad."
+    },
+    {
+      "id": "PRU",
+      "title": "Pruebas y vulnerabilidades",
+      "description": "Gestión de vulnerabilidades y programa de pruebas de resiliencia, incluido TLPT."
+    },
+    {
+      "id": "CUM",
+      "title": "Cumplimiento, auditoría y mejora",
+      "description": "Requisitos legales, auditoría, revisión por la dirección y mejora continua."
+    }
+  ],
+  "controls": [
+    {
+      "id": "GOB-01",
+      "domain": "GOB",
+      "title": "Política de seguridad de la información",
+      "description": "Política general y políticas temáticas aprobadas por la dirección, comunicadas y revisadas periódicamente."
+    },
+    {
+      "id": "GOB-02",
+      "domain": "GOB",
+      "title": "Liderazgo y responsabilidad de la dirección",
+      "description": "La dirección asume la responsabilidad última de la seguridad y del riesgo TIC, aprueba el marco y supervisa su aplicación."
+    },
+    {
+      "id": "GOB-03",
+      "domain": "GOB",
+      "title": "Roles, responsabilidades y autoridades",
+      "description": "Funciones de seguridad y TIC definidas, asignadas y comunicadas, con mecanismos de coordinación entre ellas."
+    },
+    {
+      "id": "GOB-04",
+      "domain": "GOB",
+      "title": "Segregación de funciones",
+      "description": "Separación de funciones y áreas de responsabilidad incompatibles para reducir el riesgo de uso indebido."
+    },
+    {
+      "id": "GOB-05",
+      "domain": "GOB",
+      "title": "Contexto y partes interesadas",
+      "description": "Análisis de cuestiones internas y externas y de las necesidades y expectativas de las partes interesadas."
+    },
+    {
+      "id": "GOB-06",
+      "domain": "GOB",
+      "title": "Alcance y sistema de gestión",
+      "description": "Alcance definido y documentado del sistema de gestión, con sus procesos e interacciones."
+    },
+    {
+      "id": "GOB-07",
+      "domain": "GOB",
+      "title": "Objetivos e indicadores de seguridad",
+      "description": "Objetivos medibles de seguridad de la información, con indicadores clave de rendimiento y de riesgo."
+    },
+    {
+      "id": "GOB-08",
+      "domain": "GOB",
+      "title": "Estrategia de resiliencia operativa digital",
+      "description": "Estrategia que explica cómo el marco de riesgo TIC apoya los objetivos del negocio, fija tolerancias y mecanismos de detección y protección."
+    },
+    {
+      "id": "GOB-09",
+      "domain": "GOB",
+      "title": "Recursos y presupuesto",
+      "description": "Recursos y presupuesto suficientes y revisados para la seguridad y la resiliencia, incluida la formación."
+    },
+    {
+      "id": "GOB-10",
+      "domain": "GOB",
+      "title": "Función independiente de control del riesgo TIC",
+      "description": "Función de control (segunda línea) responsable de gestionar y supervisar el riesgo TIC con independencia adecuada."
+    },
+    {
+      "id": "GOB-11",
+      "domain": "GOB",
+      "title": "Formación de la dirección en riesgo TIC",
+      "description": "Los miembros del órgano de dirección mantienen conocimientos actualizados para comprender y evaluar el riesgo TIC."
+    },
+    {
+      "id": "GOB-12",
+      "domain": "GOB",
+      "title": "Información periódica a la dirección",
+      "description": "Canales y reportes periódicos a la dirección sobre riesgos, incidentes graves, terceros y lecciones aprendidas."
+    },
+    {
+      "id": "GOB-13",
+      "domain": "GOB",
+      "title": "Contacto con autoridades y grupos de interés",
+      "description": "Contactos establecidos con autoridades competentes, foros y asociaciones especializadas."
+    },
+    {
+      "id": "GOB-14",
+      "domain": "GOB",
+      "title": "Planificación de cambios del sistema de gestión",
+      "description": "Los cambios al sistema de gestión se planifican y ejecutan de forma controlada."
+    },
+    {
+      "id": "GOB-15",
+      "domain": "GOB",
+      "title": "Seguridad en la gestión de proyectos",
+      "description": "La seguridad de la información se integra en la gestión de proyectos."
+    },
+    {
+      "id": "GOB-16",
+      "domain": "GOB",
+      "title": "Información documentada",
+      "description": "Documentación requerida creada, controlada, versionada y disponible."
+    },
+    {
+      "id": "GOB-17",
+      "domain": "GOB",
+      "title": "Comunicación del sistema de gestión",
+      "description": "Se determina qué, cuándo, a quién y cómo comunicar sobre seguridad, interna y externamente."
+    },
+    {
+      "id": "RIE-01",
+      "domain": "RIE",
+      "title": "Metodología de gestión de riesgos",
+      "description": "Proceso y criterios documentados para identificar, analizar y evaluar riesgos de seguridad y TIC."
+    },
+    {
+      "id": "RIE-02",
+      "domain": "RIE",
+      "title": "Evaluación periódica de riesgos y escenarios",
+      "description": "Evaluación de riesgos a intervalos planificados, con revisión anual de escenarios de riesgo y fuentes de amenaza."
+    },
+    {
+      "id": "RIE-03",
+      "domain": "RIE",
+      "title": "Tratamiento de riesgos y aplicabilidad",
+      "description": "Plan de tratamiento de riesgos y Declaración de Aplicabilidad con controles seleccionados y justificados."
+    },
+    {
+      "id": "RIE-04",
+      "domain": "RIE",
+      "title": "Tolerancia y apetito de riesgo TIC",
+      "description": "Nivel de tolerancia al riesgo TIC y al impacto de las disrupciones, alineado con el apetito de riesgo."
+    },
+    {
+      "id": "RIE-05",
+      "domain": "RIE",
+      "title": "Riesgo de sistemas heredados",
+      "description": "Evaluación específica, al menos anual, del riesgo de los sistemas TIC heredados y antes/después de conectar nuevas tecnologías."
+    },
+    {
+      "id": "RIE-06",
+      "domain": "RIE",
+      "title": "Inteligencia de amenazas",
+      "description": "Recopilación y análisis de información sobre amenazas y vulnerabilidades relevantes."
+    },
+    {
+      "id": "RIE-07",
+      "domain": "RIE",
+      "title": "Vigilancia tecnológica",
+      "description": "Seguimiento de avances tecnológicos y nuevas técnicas de ataque y su efecto en la seguridad."
+    },
+    {
+      "id": "RIE-08",
+      "domain": "RIE",
+      "title": "Evaluación de riesgos ante cambios importantes",
+      "description": "Evaluación de riesgos cada vez que hay cambios relevantes en infraestructura, procesos o sistemas."
+    },
+    {
+      "id": "ACT-01",
+      "domain": "ACT",
+      "title": "Inventario de activos",
+      "description": "Inventario actualizado de activos de información y TIC, incluidos remotos y de red, con propietarios asignados."
+    },
+    {
+      "id": "ACT-02",
+      "domain": "ACT",
+      "title": "Mapa de funciones, dependencias e interconexiones",
+      "description": "Identificación de funciones de negocio soportadas por TIC, sus activos, dependencias e interconexiones con terceros."
+    },
+    {
+      "id": "ACT-03",
+      "domain": "ACT",
+      "title": "Uso aceptable de activos",
+      "description": "Normas de uso aceptable de la información y los activos, conocidas por los usuarios."
+    },
+    {
+      "id": "ACT-04",
+      "domain": "ACT",
+      "title": "Devolución de activos",
+      "description": "Devolución de los activos de la organización al cambiar o terminar la relación."
+    },
+    {
+      "id": "ACT-05",
+      "domain": "ACT",
+      "title": "Clasificación de la información",
+      "description": "Clasificación según confidencialidad, integridad, disponibilidad y criticidad."
+    },
+    {
+      "id": "ACT-06",
+      "domain": "ACT",
+      "title": "Etiquetado de la información",
+      "description": "Procedimientos de etiquetado acordes al esquema de clasificación."
+    },
+    {
+      "id": "ACT-07",
+      "domain": "ACT",
+      "title": "Transferencia segura de información",
+      "description": "Reglas y medios seguros para transferir información interna y externamente."
+    },
+    {
+      "id": "ACT-08",
+      "domain": "ACT",
+      "title": "Soportes de almacenamiento",
+      "description": "Gestión segura de soportes durante todo su ciclo de vida."
+    },
+    {
+      "id": "ACT-09",
+      "domain": "ACT",
+      "title": "Borrado de información",
+      "description": "Eliminación segura de la información cuando ya no se necesita."
+    },
+    {
+      "id": "ACT-10",
+      "domain": "ACT",
+      "title": "Enmascaramiento de datos",
+      "description": "Enmascaramiento o seudonimización de datos según la política de acceso."
+    },
+    {
+      "id": "ACT-11",
+      "domain": "ACT",
+      "title": "Prevención de fuga de datos",
+      "description": "Medidas para detectar y evitar la divulgación no autorizada de información."
+    },
+    {
+      "id": "ACT-12",
+      "domain": "ACT",
+      "title": "Protección de registros",
+      "description": "Protección de los registros frente a pérdida, destrucción, falsificación o acceso no autorizado."
+    },
+    {
+      "id": "ACT-13",
+      "domain": "ACT",
+      "title": "Privacidad y datos personales",
+      "description": "Cumplimiento de requisitos de privacidad y protección de datos personales."
+    },
+    {
+      "id": "ACT-14",
+      "domain": "ACT",
+      "title": "Eliminación o reutilización de equipos",
+      "description": "Verificación del borrado seguro antes de eliminar o reutilizar equipos."
+    },
+    {
+      "id": "PER-01",
+      "domain": "PER",
+      "title": "Verificación de antecedentes",
+      "description": "Verificación de candidatos proporcional al riesgo y a la información a la que accederán."
+    },
+    {
+      "id": "PER-02",
+      "domain": "PER",
+      "title": "Términos y condiciones de empleo",
+      "description": "Responsabilidades de seguridad en los acuerdos contractuales con el personal."
+    },
+    {
+      "id": "PER-03",
+      "domain": "PER",
+      "title": "Concienciación, formación y competencia",
+      "description": "Programa obligatorio de concienciación y formación en seguridad y resiliencia, acorde a cada función."
+    },
+    {
+      "id": "PER-04",
+      "domain": "PER",
+      "title": "Proceso disciplinario",
+      "description": "Proceso formal ante incumplimientos de la política de seguridad."
+    },
+    {
+      "id": "PER-05",
+      "domain": "PER",
+      "title": "Responsabilidades tras la desvinculación",
+      "description": "Obligaciones de seguridad vigentes tras la terminación o cambio de empleo."
+    },
+    {
+      "id": "PER-06",
+      "domain": "PER",
+      "title": "Acuerdos de confidencialidad",
+      "description": "Acuerdos de confidencialidad identificados, documentados y revisados."
+    },
+    {
+      "id": "PER-07",
+      "domain": "PER",
+      "title": "Teletrabajo",
+      "description": "Medidas de seguridad para el trabajo en remoto."
+    },
+    {
+      "id": "PER-08",
+      "domain": "PER",
+      "title": "Notificación de eventos por el personal",
+      "description": "Canal para que el personal informe eventos de seguridad observados o sospechados."
+    },
+    {
+      "id": "ACC-01",
+      "domain": "ACC",
+      "title": "Política de control de acceso",
+      "description": "Reglas de acceso físico y lógico basadas en necesidad de conocer y mínimo privilegio."
+    },
+    {
+      "id": "ACC-02",
+      "domain": "ACC",
+      "title": "Gestión de identidades",
+      "description": "Ciclo de vida completo de las identidades."
+    },
+    {
+      "id": "ACC-03",
+      "domain": "ACC",
+      "title": "Información de autenticación",
+      "description": "Asignación y gestión segura de contraseñas y otros secretos de autenticación."
+    },
+    {
+      "id": "ACC-04",
+      "domain": "ACC",
+      "title": "Derechos de acceso",
+      "description": "Alta, revisión periódica, modificación y baja de derechos de acceso."
+    },
+    {
+      "id": "ACC-05",
+      "domain": "ACC",
+      "title": "Accesos privilegiados",
+      "description": "Restricción y gestión de los derechos de acceso privilegiado."
+    },
+    {
+      "id": "ACC-06",
+      "domain": "ACC",
+      "title": "Restricción de acceso a la información",
+      "description": "Acceso a la información y a las aplicaciones limitado según la política."
+    },
+    {
+      "id": "ACC-07",
+      "domain": "ACC",
+      "title": "Acceso al código fuente",
+      "description": "Gestión del acceso de lectura y escritura al código fuente y herramientas de desarrollo."
+    },
+    {
+      "id": "ACC-08",
+      "domain": "ACC",
+      "title": "Autenticación segura y fuerte",
+      "description": "Autenticación robusta (incluida multifactor) basada en estándares y en el riesgo."
+    },
+    {
+      "id": "ACC-09",
+      "domain": "ACC",
+      "title": "Utilidades privilegiadas",
+      "description": "Restricción y control de programas capaces de eludir controles."
+    },
+    {
+      "id": "FIS-01",
+      "domain": "FIS",
+      "title": "Perímetros de seguridad física",
+      "description": "Perímetros definidos para proteger áreas con información y activos."
+    },
+    {
+      "id": "FIS-02",
+      "domain": "FIS",
+      "title": "Controles de entrada física",
+      "description": "Acceso físico a áreas seguras restringido y controlado."
+    },
+    {
+      "id": "FIS-03",
+      "domain": "FIS",
+      "title": "Seguridad de oficinas e instalaciones",
+      "description": "Diseño e implantación de la seguridad física de oficinas y salas."
+    },
+    {
+      "id": "FIS-04",
+      "domain": "FIS",
+      "title": "Monitorización de la seguridad física",
+      "description": "Vigilancia continua de las instalaciones frente a accesos no autorizados."
+    },
+    {
+      "id": "FIS-05",
+      "domain": "FIS",
+      "title": "Amenazas físicas y ambientales",
+      "description": "Protección frente a desastres naturales, incendios, inundaciones y otras amenazas físicas."
+    },
+    {
+      "id": "FIS-06",
+      "domain": "FIS",
+      "title": "Trabajo en áreas seguras",
+      "description": "Medidas para trabajar en áreas seguras."
+    },
+    {
+      "id": "FIS-07",
+      "domain": "FIS",
+      "title": "Escritorio y pantalla limpios",
+      "description": "Reglas de escritorio limpio y bloqueo de pantalla."
+    },
+    {
+      "id": "FIS-08",
+      "domain": "FIS",
+      "title": "Emplazamiento y protección de equipos",
+      "description": "Ubicación segura y protección de los equipos."
+    },
+    {
+      "id": "FIS-09",
+      "domain": "FIS",
+      "title": "Activos fuera de las instalaciones",
+      "description": "Protección de los activos utilizados fuera de las instalaciones."
+    },
+    {
+      "id": "FIS-10",
+      "domain": "FIS",
+      "title": "Servicios de suministro",
+      "description": "Protección frente a fallos de electricidad, telecomunicaciones y otros suministros."
+    },
+    {
+      "id": "FIS-11",
+      "domain": "FIS",
+      "title": "Seguridad del cableado",
+      "description": "Protección del cableado de energía y datos."
+    },
+    {
+      "id": "FIS-12",
+      "domain": "FIS",
+      "title": "Mantenimiento de equipos",
+      "description": "Mantenimiento correcto de los equipos para asegurar su disponibilidad e integridad."
+    },
+    {
+      "id": "OPE-01",
+      "domain": "OPE",
+      "title": "Procedimientos operativos documentados",
+      "description": "Procedimientos de operación documentados y disponibles para quien los necesita."
+    },
+    {
+      "id": "OPE-02",
+      "domain": "OPE",
+      "title": "Dispositivos de usuario final",
+      "description": "Protección de la información en dispositivos de usuario final."
+    },
+    {
+      "id": "OPE-03",
+      "domain": "OPE",
+      "title": "Gestión de la capacidad",
+      "description": "Seguimiento y ajuste de la capacidad y el rendimiento, incluso en picos y situaciones de tensión."
+    },
+    {
+      "id": "OPE-04",
+      "domain": "OPE",
+      "title": "Protección contra malware",
+      "description": "Protección frente a código malicioso apoyada en la concienciación de los usuarios."
+    },
+    {
+      "id": "OPE-05",
+      "domain": "OPE",
+      "title": "Gestión de la configuración",
+      "description": "Configuraciones, incluidas las de seguridad, establecidas, documentadas, supervisadas y revisadas."
+    },
+    {
+      "id": "OPE-06",
+      "domain": "OPE",
+      "title": "Copias de seguridad",
+      "description": "Política de respaldo con alcance y frecuencia según criticidad, y pruebas periódicas de restauración."
+    },
+    {
+      "id": "OPE-07",
+      "domain": "OPE",
+      "title": "Registro de eventos",
+      "description": "Generación, protección y análisis de registros de actividad, excepciones y fallos."
+    },
+    {
+      "id": "OPE-08",
+      "domain": "OPE",
+      "title": "Monitorización y detección de anomalías",
+      "description": "Supervisión continua de redes, sistemas y usuarios para detectar comportamientos anómalos."
+    },
+    {
+      "id": "OPE-09",
+      "domain": "OPE",
+      "title": "Sincronización de relojes",
+      "description": "Relojes de los sistemas sincronizados con fuentes aprobadas."
+    },
+    {
+      "id": "OPE-10",
+      "domain": "OPE",
+      "title": "Instalación de software en producción",
+      "description": "Control de la instalación de software en sistemas operativos."
+    },
+    {
+      "id": "OPE-11",
+      "domain": "OPE",
+      "title": "Criptografía y gestión de claves",
+      "description": "Uso eficaz de la criptografía y gestión segura de las claves en todo su ciclo de vida."
+    },
+    {
+      "id": "OPE-12",
+      "domain": "OPE",
+      "title": "Sistemas TIC fiables y resilientes",
+      "description": "Sistemas, protocolos y herramientas TIC fiables, actualizados, con capacidad suficiente y resilientes ante situaciones adversas."
+    },
+    {
+      "id": "OPE-13",
+      "domain": "OPE",
+      "title": "Parches y actualizaciones",
+      "description": "Política documentada para la aplicación de parches y actualizaciones."
+    },
+    {
+      "id": "RED-01",
+      "domain": "RED",
+      "title": "Seguridad de redes",
+      "description": "Redes y dispositivos de red protegidos, gestionados y controlados."
+    },
+    {
+      "id": "RED-02",
+      "domain": "RED",
+      "title": "Seguridad de los servicios de red",
+      "description": "Mecanismos de seguridad y niveles de servicio de red identificados y supervisados."
+    },
+    {
+      "id": "RED-03",
+      "domain": "RED",
+      "title": "Segregación de redes y aislamiento",
+      "description": "Segmentación de redes con capacidad de aislamiento rápido para contener ataques."
+    },
+    {
+      "id": "RED-04",
+      "domain": "RED",
+      "title": "Filtrado web",
+      "description": "Gestión del acceso a sitios web externos para reducir la exposición a contenido malicioso."
+    },
+    {
+      "id": "RED-05",
+      "domain": "RED",
+      "title": "Redundancia de instalaciones TIC",
+      "description": "Capacidad redundante suficiente para cumplir los requisitos de disponibilidad."
+    },
+    {
+      "id": "DES-01",
+      "domain": "DES",
+      "title": "Ciclo de vida de desarrollo seguro",
+      "description": "Reglas para el desarrollo seguro de software y sistemas."
+    },
+    {
+      "id": "DES-02",
+      "domain": "DES",
+      "title": "Requisitos de seguridad de aplicaciones",
+      "description": "Requisitos de seguridad identificados y aprobados al desarrollar o adquirir aplicaciones."
+    },
+    {
+      "id": "DES-03",
+      "domain": "DES",
+      "title": "Arquitectura e ingeniería segura",
+      "description": "Principios de ingeniería segura y arquitectura de referencia TIC documentados y aplicados."
+    },
+    {
+      "id": "DES-04",
+      "domain": "DES",
+      "title": "Codificación segura",
+      "description": "Principios de codificación segura aplicados al desarrollo."
+    },
+    {
+      "id": "DES-05",
+      "domain": "DES",
+      "title": "Pruebas de seguridad en desarrollo y aceptación",
+      "description": "Pruebas de seguridad definidas e integradas en el ciclo de desarrollo."
+    },
+    {
+      "id": "DES-06",
+      "domain": "DES",
+      "title": "Desarrollo externalizado",
+      "description": "Dirección, seguimiento y revisión del desarrollo externalizado."
+    },
+    {
+      "id": "DES-07",
+      "domain": "DES",
+      "title": "Separación de entornos",
+      "description": "Separación de los entornos de desarrollo, prueba y producción."
+    },
+    {
+      "id": "DES-08",
+      "domain": "DES",
+      "title": "Gestión de cambios",
+      "description": "Cambios en sistemas e instalaciones registrados, evaluados por riesgo, probados, aprobados y verificados."
+    },
+    {
+      "id": "DES-09",
+      "domain": "DES",
+      "title": "Información de prueba",
+      "description": "Selección, protección y gestión adecuadas de la información usada en pruebas."
+    },
+    {
+      "id": "PRO-01",
+      "domain": "PRO",
+      "title": "Política y estrategia de riesgo de terceros TIC",
+      "description": "Política y estrategia para el uso de servicios TIC de terceros, aprobadas y revisadas por la dirección."
+    },
+    {
+      "id": "PRO-02",
+      "domain": "PRO",
+      "title": "Cláusulas contractuales con proveedores",
+      "description": "Requisitos de seguridad, niveles de servicio, auditoría, notificación y salida acordados por escrito."
+    },
+    {
+      "id": "PRO-03",
+      "domain": "PRO",
+      "title": "Seguridad en la cadena de suministro TIC",
+      "description": "Gestión de los riesgos de seguridad asociados a la cadena de suministro de productos y servicios TIC."
+    },
+    {
+      "id": "PRO-04",
+      "domain": "PRO",
+      "title": "Seguimiento y auditoría de proveedores",
+      "description": "Seguimiento, revisión y auditoría periódica de los servicios y del desempeño de los proveedores."
+    },
+    {
+      "id": "PRO-05",
+      "domain": "PRO",
+      "title": "Servicios en la nube",
+      "description": "Procesos de adquisición, uso, gestión y salida de servicios en la nube."
+    },
+    {
+      "id": "PRO-06",
+      "domain": "PRO",
+      "title": "Registro de acuerdos con proveedores TIC",
+      "description": "Registro de información de todos los acuerdos contractuales de servicios TIC, a nivel de entidad y de grupo."
+    },
+    {
+      "id": "PRO-07",
+      "domain": "PRO",
+      "title": "Diligencia debida previa a la contratación",
+      "description": "Evaluación de riesgos, idoneidad y conflictos de interés antes de contratar servicios TIC."
+    },
+    {
+      "id": "PRO-08",
+      "domain": "PRO",
+      "title": "Riesgo de concentración y subcontratación",
+      "description": "Evaluación de la concentración, la sustituibilidad y las cadenas de subcontratación de proveedores TIC."
+    },
+    {
+      "id": "PRO-09",
+      "domain": "PRO",
+      "title": "Estrategias de salida",
+      "description": "Estrategias de salida y planes de transición probados para servicios que soportan funciones críticas."
+    },
+    {
+      "id": "PRO-10",
+      "domain": "PRO",
+      "title": "Terminación de acuerdos",
+      "description": "Supuestos y derechos de terminación de los acuerdos con proveedores TIC."
+    },
+    {
+      "id": "PRO-11",
+      "domain": "PRO",
+      "title": "Responsable de supervisión de terceros TIC",
+      "description": "Cargo o miembro de la alta dirección responsable de supervisar la exposición a terceros TIC."
+    },
+    {
+      "id": "INC-01",
+      "domain": "INC",
+      "title": "Planificación de la gestión de incidentes",
+      "description": "Proceso, roles y responsabilidades de gestión de incidentes definidos y comunicados."
+    },
+    {
+      "id": "INC-02",
+      "domain": "INC",
+      "title": "Clasificación y priorización de incidentes",
+      "description": "Criterios para evaluar, clasificar y priorizar eventos e incidentes según su impacto."
+    },
+    {
+      "id": "INC-03",
+      "domain": "INC",
+      "title": "Respuesta a incidentes",
+      "description": "Procedimientos documentados de contención, respuesta y restablecimiento de servicios."
+    },
+    {
+      "id": "INC-04",
+      "domain": "INC",
+      "title": "Lecciones aprendidas y análisis de causa raíz",
+      "description": "Revisión post-incidente, análisis de causas y mejoras derivadas."
+    },
+    {
+      "id": "INC-05",
+      "domain": "INC",
+      "title": "Recopilación de evidencias",
+      "description": "Identificación, recogida y preservación de evidencias."
+    },
+    {
+      "id": "INC-06",
+      "domain": "INC",
+      "title": "Registro de incidentes y ciberamenazas",
+      "description": "Registro de todos los incidentes TIC y de las ciberamenazas importantes."
+    },
+    {
+      "id": "INC-07",
+      "domain": "INC",
+      "title": "Notificación a autoridades",
+      "description": "Notificación de incidentes graves a la autoridad competente en los plazos y formatos exigidos."
+    },
+    {
+      "id": "INC-08",
+      "domain": "INC",
+      "title": "Comunicación a clientes afectados",
+      "description": "Información sin demora a los clientes afectados y medidas de protección recomendadas."
+    },
+    {
+      "id": "INC-09",
+      "domain": "INC",
+      "title": "Comunicación de crisis",
+      "description": "Plan de comunicación de crisis, políticas de comunicación interna y externa y portavoz designado."
+    },
+    {
+      "id": "INC-10",
+      "domain": "INC",
+      "title": "Alerta temprana y umbrales",
+      "description": "Indicadores de alerta temprana y umbrales que activan la respuesta a incidentes."
+    },
+    {
+      "id": "INC-11",
+      "domain": "INC",
+      "title": "Escalado a la dirección",
+      "description": "Escalado de incidentes graves a la alta dirección y al órgano de dirección."
+    },
+    {
+      "id": "INC-12",
+      "domain": "INC",
+      "title": "Estimación de costes e impacto",
+      "description": "Estimación del impacto, los costes y las pérdidas de los incidentes."
+    },
+    {
+      "id": "CON-01",
+      "domain": "CON",
+      "title": "Seguridad durante una disrupción",
+      "description": "Mantenimiento de la seguridad de la información durante disrupciones."
+    },
+    {
+      "id": "CON-02",
+      "domain": "CON",
+      "title": "Continuidad de las TIC",
+      "description": "Política y planes de continuidad TIC basados en los objetivos de continuidad del negocio."
+    },
+    {
+      "id": "CON-03",
+      "domain": "CON",
+      "title": "Análisis de impacto en el negocio",
+      "description": "BIA de exposiciones a disrupciones graves, con criterios cuantitativos y cualitativos."
+    },
+    {
+      "id": "CON-04",
+      "domain": "CON",
+      "title": "Planes de respuesta y recuperación TIC",
+      "description": "Planes documentados de respuesta y recuperación por tipo de escenario."
+    },
+    {
+      "id": "CON-05",
+      "domain": "CON",
+      "title": "Pruebas de continuidad y recuperación",
+      "description": "Pruebas periódicas de planes, incluidos escenarios de ciberataque y conmutación."
+    },
+    {
+      "id": "CON-06",
+      "domain": "CON",
+      "title": "Objetivos de recuperación (RTO/RPO)",
+      "description": "Objetivos de tiempo y punto de recuperación por función, según su criticidad."
+    },
+    {
+      "id": "CON-07",
+      "domain": "CON",
+      "title": "Restauración aislada e integridad de datos",
+      "description": "Restauración desde sistemas separados y verificación de la integridad de los datos recuperados."
+    },
+    {
+      "id": "CON-08",
+      "domain": "CON",
+      "title": "Función de gestión de crisis",
+      "description": "Función de gestión de crisis activable junto con los planes de continuidad."
+    },
+    {
+      "id": "CON-09",
+      "domain": "CON",
+      "title": "Registro durante disrupciones",
+      "description": "Registros accesibles de las actividades antes y durante una disrupción."
+    },
+    {
+      "id": "PRU-01",
+      "domain": "PRU",
+      "title": "Gestión de vulnerabilidades técnicas",
+      "description": "Identificación, evaluación y corrección oportuna de vulnerabilidades técnicas."
+    },
+    {
+      "id": "PRU-02",
+      "domain": "PRU",
+      "title": "Programa de pruebas de resiliencia",
+      "description": "Programa de pruebas basado en riesgo, integrado en el marco de gestión del riesgo TIC."
+    },
+    {
+      "id": "PRU-03",
+      "domain": "PRU",
+      "title": "Independencia de las pruebas",
+      "description": "Pruebas realizadas por partes independientes, internas o externas, sin conflictos de interés."
+    },
+    {
+      "id": "PRU-04",
+      "domain": "PRU",
+      "title": "Corrección de hallazgos de pruebas",
+      "description": "Priorización, clasificación y corrección de los problemas detectados, con validación interna."
+    },
+    {
+      "id": "PRU-05",
+      "domain": "PRU",
+      "title": "Pruebas anuales de sistemas críticos",
+      "description": "Pruebas al menos anuales de los sistemas y aplicaciones que soportan funciones críticas."
+    },
+    {
+      "id": "PRU-06",
+      "domain": "PRU",
+      "title": "Pruebas de penetración basadas en amenazas (TLPT)",
+      "description": "Pruebas avanzadas sobre sistemas de producción de funciones críticas, según el marco TIBER-EU."
+    },
+    {
+      "id": "PRU-07",
+      "domain": "PRU",
+      "title": "Requisitos de los probadores",
+      "description": "Idoneidad, acreditación, seguros y contratos de los probadores de pruebas avanzadas."
+    },
+    {
+      "id": "PRU-08",
+      "domain": "PRU",
+      "title": "Pruebas de los mecanismos de detección",
+      "description": "Pruebas periódicas de los mecanismos de detección de anomalías."
+    },
+    {
+      "id": "CUM-01",
+      "domain": "CUM",
+      "title": "Requisitos legales, regulatorios y contractuales",
+      "description": "Identificación y seguimiento de los requisitos aplicables."
+    },
+    {
+      "id": "CUM-02",
+      "domain": "CUM",
+      "title": "Propiedad intelectual",
+      "description": "Protección de los derechos de propiedad intelectual."
+    },
+    {
+      "id": "CUM-03",
+      "domain": "CUM",
+      "title": "Revisión independiente de la seguridad",
+      "description": "Revisión independiente periódica del enfoque de gestión de la seguridad."
+    },
+    {
+      "id": "CUM-04",
+      "domain": "CUM",
+      "title": "Cumplimiento de políticas y normas",
+      "description": "Revisión periódica del cumplimiento de las políticas, normas y estándares internos."
+    },
+    {
+      "id": "CUM-05",
+      "domain": "CUM",
+      "title": "Seguimiento y medición",
+      "description": "Seguimiento, medición, análisis y evaluación del desempeño y la eficacia."
+    },
+    {
+      "id": "CUM-06",
+      "domain": "CUM",
+      "title": "Auditoría interna",
+      "description": "Programa de auditoría interna con auditores competentes e independientes."
+    },
+    {
+      "id": "CUM-07",
+      "domain": "CUM",
+      "title": "Protección durante auditorías y pruebas",
+      "description": "Planificación de auditorías y pruebas para minimizar el impacto en sistemas operativos."
+    },
+    {
+      "id": "CUM-08",
+      "domain": "CUM",
+      "title": "Revisión por la dirección",
+      "description": "Revisión periódica del sistema de gestión por la dirección, al menos anual."
+    },
+    {
+      "id": "CUM-09",
+      "domain": "CUM",
+      "title": "No conformidades y acciones correctivas",
+      "description": "Tratamiento de no conformidades y hallazgos, con seguimiento formal de su corrección."
+    },
+    {
+      "id": "CUM-10",
+      "domain": "CUM",
+      "title": "Mejora continua",
+      "description": "Mejora continua del sistema a partir de lecciones aprendidas, pruebas y auditorías."
+    },
+    {
+      "id": "CUM-11",
+      "domain": "CUM",
+      "title": "Intercambio de información sobre amenazas",
+      "description": "Participación en acuerdos de intercambio de inteligencia sobre ciberamenazas."
+    },
+    {
+      "id": "CUM-12",
+      "domain": "CUM",
+      "title": "Información a la autoridad competente",
+      "description": "Entrega a la autoridad, cuando la solicite, de información sobre el marco de riesgo TIC, revisiones y resultados."
+    }
+  ]
+}
